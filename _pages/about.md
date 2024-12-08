@@ -36,7 +36,7 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 
 # 📖 Educations
 
-- 2022.06 - Present B.Sc. in Mathematics & Statistics, Sichuan University
+- 2022.06 - Present, B.Sc. in Mathematics & Statistics, Sichuan University
 - *2025.01 - 2025.05*, Exchange at University of California, Berkeley
 
 
