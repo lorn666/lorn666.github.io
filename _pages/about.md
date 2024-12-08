@@ -27,9 +27,16 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 
 
 
+#  📝Coursework
+
+- GPA(top 1%): 3.96/4.0
+- Selected Course:  Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Probability Theory (100), Function of Real Variable (95), Function of Complex Variable (95), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
+
+
+
 # 📖 Educations
 
-- 2022.06-Present BSc in Mathematics & Statistics, Sichuan University
+- 2022.06 - Present BSc in Mathematics & Statistics, Sichuan University
 - *2025.01 - 2025.05*, Exchange at University of California, Berkeley
 
 
@@ -50,8 +57,3 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 - Excellent Student of Sichuan University (Top 10%)
 - Excellent Student Cadre of Sichuan University (Top 10%)
 - Honorable Mention in the Mathematical Contest In Modeling
-
-#  📝Coursework
-
-- GPA(top 1%): 3.96/4.0
-- Selected Course:  Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Probability Theory (100), Function of Real Variable (95), Function of Complex Variable (95), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
