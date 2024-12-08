@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at Sichuan University. I’m now a research Intern at Alibaba DAMO Academy advised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. My research interest lies in  generative model and large language model, with a specific interest in **leveraging external tools and algorithms to enhance the math inference abilities of LLM**. I also did some research on **Imputation of Spatial Transcriptomics via Diffusion Model** in Yale university guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
+Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at Sichuan University. I’m now a research Intern at Alibaba DAMO Academy advised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. My research interest lies in  generative model and large language model, with a specific interest in **leveraging external tools and algorithms to enhance the math inference abilities of LLM**. I also did some research on **Imputation of Spatial Transcriptomics via Diffusion Model** in Yale University guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
 
 
 
@@ -51,6 +51,7 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 
 
 # 🎖 Honors and Awards
+
 - **National Scholarship** of Sichuan University (Top 1%, **twice**)
 - Sichuan University "Youth Medal" (Top 0.1%)
 
