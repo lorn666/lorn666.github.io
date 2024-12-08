@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at Sichuan University. I’m now a research Intern at Alibaba DAMO Academy advised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. My research interest lies in  generative model and large language model, with a specific interest in **leveraging external tools and algorithm to enhance the math inference abilities of LLM**. I also do did some research on **Imputation of Spatial Transcriptomics via Diffusion Model** in Yale university guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
+Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at Sichuan University. I’m now a research Intern at Alibaba DAMO Academy advised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. My research interest lies in  generative model and large language model, with a specific interest in **leveraging external tools and algorithms to enhance the math inference abilities of LLM**. I also did some research on **Imputation of Spatial Transcriptomics via Diffusion Model** in Yale university guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
 
 
 
@@ -30,13 +30,13 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 #  📝Coursework
 
 - GPA(top 1%): 3.96/4.0
-- Selected Course:  Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Probability Theory (100), Function of Real Variable (95), Function of Complex Variable (95), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
+- Selected Course:   Probability Theory (100), Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Function of Real Variable (95), Function of Complex Variable (95), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
 
 
 
 # 📖 Educations
 
-- 2022.06 - Present BSc in Mathematics & Statistics, Sichuan University
+- 2022.06 - Present B.Sc. in Mathematics & Statistics, Sichuan University
 - *2025.01 - 2025.05*, Exchange at University of California, Berkeley
 
 
