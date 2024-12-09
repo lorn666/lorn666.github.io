@@ -25,7 +25,7 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 # 🔥 News
 - *2024.12*: &nbsp;🎉🎉 I initialized my Homepage!
 
-
+<span class='anchor' id='-Coursework'></span>
 
 #  📝Coursework
 
