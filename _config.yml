@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "About me"
+title                    : "Jiayi Sheng Homepage"
 description              : Sichuan University
 repository               : "lorn666/lorn666.github.io"
 google_scholar_stats_use_cdn : true
