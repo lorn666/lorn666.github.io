@@ -52,7 +52,7 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 
 # 🎖 Honors and Awards
 
-- **National Scholarship** of Sichuan University (Top 1%, **twice**)
+- **National Scholarship**  (10,000 CNY, Top 1%, **twice**)
 - Sichuan University "Youth Medal" (Top 0.1%)
 
 - Excellent Student of Sichuan University (Top 10%)
