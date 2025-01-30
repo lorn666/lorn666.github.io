@@ -17,12 +17,13 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at Sichuan University. I’m now a research Intern at Alibaba DAMO Academy advised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. My research interest lies in  generative model and large language model, with a specific interest in **leveraging external tools and algorithms to enhance the math inference abilities of LLM**. I also did some research on **Imputation of Spatial Transcriptomics via Diffusion Model** in Yale University guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
-
+Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at Sichuan University. I’m now an exchange student at University of California, Berkeley. In addition, I’m now a research Intern at Alibaba DAMO Academy advised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. My research interest lies in  generative model and large language model, with a specific interest in **leveraging external tools and algorithms to enhance the math inference abilities of LLM**. I also did some research on **Imputation of Spatial Transcriptomics via Diffusion Model** in Yale University guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
 
 
 
 # 🔥 News
+
+- 2025.1: &nbsp;🎉🎉 I finished my new paper!
 - *2024.12*: &nbsp;🎉🎉 I initialized my Homepage!
 
 <span class='anchor' id='-Coursework'></span>
