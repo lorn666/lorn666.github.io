@@ -30,13 +30,13 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 
 
 
-# 📝 Publications 
+# 📝 Papers
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">PrePrint</div><img src='images/pipeline.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Auto-Verify: A Plug-and-Play Step-wise Verification
-and Self-Correction Pipeline in Mathematical Reasoning](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+and Self-Correction Pipeline in Mathematical Reasoning](https://drive.google.com/file/d/1UR0B5ziAKzdn8dEMkYHRZQeDb9kO1gqV/view?usp=sharing)
 
 **Jiayi Sheng\***, Jinrui Zhang\*, Xuran Chen, Chenyang Deng, Wotao Yin
 
