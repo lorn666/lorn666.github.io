@@ -38,11 +38,13 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 [Auto-Verify: A Plug-and-Play Step-wise Verification
 and Self-Correction Pipeline in Mathematical Reasoning](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
 
-**Jiayi Sheng**, Jinrui Zhang, Xuran Chen, Chenyang Deng, Wotao Yin
+**Jiayi Sheng**, Jinrui Zhang, Xuran Chen, Chenyang Deng
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 
-
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+</div>
+</div>
 
 
 
