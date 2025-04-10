@@ -64,8 +64,9 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://drive.google.com
 
 # 💻 Internships
 
-- *2024.06 - Present* ,**DAMO Academy, Alibaba Group**, USA.
-- *2024.06 - Present* , **Zhao’s Lab, Yale University**, USA.
+- *2025.02 - Present* , **Stanford University**, USA.
+- *2024.06 - 2025.01* , **DAMO Academy, Alibaba Group**, USA.
+- *2024.06 - 2024.10* , **Zhao’s Lab, Yale University**, USA.
 - *2023.06 - 2024.06*, **Thz Lab in College of Mathematics, Sichuan University**, China.
 - *2023.07 - 2023.08*, **Institute of Information Engineering, Chinese Academy of Sciences**, China.
 
