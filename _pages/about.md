@@ -32,7 +32,7 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 
 # 📝 Papers
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">PrePrint</div><img src='images/pipeline.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/pipeline.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Auto-Verify: A Plug-and-Play Step-wise Verification
