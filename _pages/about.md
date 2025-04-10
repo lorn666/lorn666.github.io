@@ -51,7 +51,7 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://drive.google.com
 #  📝Coursework
 
 - GPA(top 1%): 3.96/4.0
-- Selected Course:   Probability Theory (100), Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Function of Real Variable (95), Function of Complex Variable (95), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
+- Selected Course (Out of 100 points):   Probability Theory (100),  Multivariable Statistics(99), Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Function of Real Variable (95), Function of Complex Variable (95), Numerical Analysis (95), Computer Networks(100), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
 
 
 
