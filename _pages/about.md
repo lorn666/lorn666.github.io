@@ -42,7 +42,7 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://drive.google.com
 
 (\*Equal Contribution)
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+[**Paper**](https://drive.google.com/file/d/1UR0B5ziAKzdn8dEMkYHRZQeDb9kO1gqV/view?usp=sharing) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 </div>
 </div>
 
