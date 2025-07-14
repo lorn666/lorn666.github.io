@@ -81,3 +81,17 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://drive.google.com
 - Excellent Student of Sichuan University (Top 10%)
 - Excellent Student Cadre of Sichuan University (Top 10%)
 - Honorable Mention in the Mathematical Contest In Modeling
+
+  <footer class="footer">
+    <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-4" style="display: flex; align-items: center; justify-content: flex-end;">
+        <div style="max-width:320px; min-width:220px; width:100%; display:flex; justify-content:flex-end;">
+          <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=i7JXLVe24sIuDnlFe0kqhH9IOP18okykNZrOzZVQl6M&cl=ffffff&w=a"></script>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </footer>
