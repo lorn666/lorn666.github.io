@@ -89,7 +89,7 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://drive.google.com
     <div class="columns is-centered">
       <div class="column is-4" style="display: flex; align-items: center; justify-content: flex-end;">
         <div style="max-width:320px; min-width:220px; width:100%; display:flex; justify-content:flex-end;">
-          <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=i7JXLVe24sIuDnlFe0kqhH9IOP18okykNZrOzZVQl6M&cl=ffffff&w=a"></script>
+          <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=XuGCk0QNqefpJaBDYT1hm6U3wH-dIy6LMI2O18TfpCE&cl=ffffff&w=a"></script>
         </div>
       </div>
     </div>
