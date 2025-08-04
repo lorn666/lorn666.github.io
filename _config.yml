@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Jiayi Sheng"
-  avatar           : "images/my_photos.png"
+  avatar           : "images/my_photos_v3.png"
   bio              : "Undergraduate \n@ SCU, interested in Large Language Model, Machine Learning."
   location         : "Beijing, China"
   employer         :
