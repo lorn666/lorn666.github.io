@@ -34,12 +34,12 @@ and Self-Correction Pipeline in Mathematical Reasoning**!
 # 📝 Papers
 
 <!-- IneqMath -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2025 Spotlight</div><img src='images/papers/ineqmath.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2025 Spotlight</div><img src='images/ineqmath.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Solving Inequality Proofs with Large Language Models](https://arxiv.org/abs/2506.07927)
   
-**Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou <sup>\(\dagger\)</sup>, Pan Lu <sup>\(\dagger\)</sup>
+**Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou <sup>&#8224;</sup>, Pan Lu <sup>&#8224;</sup>
 [**Project**](https://ineqmath.github.io/)
 |
 [**Paper**](https://arxiv.org/abs/2509.09990)
@@ -50,7 +50,7 @@ and Self-Correction Pipeline in Mathematical Reasoning**!
 |
 [**Leaderboard**](https://huggingface.co/spaces/AI4Math/IneqMath-Leaderboard)
 
-(\*Co-first Author, <sup>\(\dagger\)</sup> Co-senior authors)
+(\*Co-first Author, <sup>&#8224;</sup> Co-senior authors)
 
 </div>
 </div>
