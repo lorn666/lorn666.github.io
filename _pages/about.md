@@ -18,7 +18,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at SCU. I was an exchange student at UC Berkeley during Spring 2025 and Summer 2025. My research interest lies in generative model and large language model, with a specific interest in **AI for Math**, which **leverage AI models to solve high-level math problems**. I was an intern working on LLM for Math at Stanford University advised by <a href = "https://lupantech.github.io/">Pan Lu </a> and <a href = "https://www.james-zou.com/">James Zou</a>, and at Alibaba DAMO Academy supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in Yale University guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
+Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at SCU. I was an exchange student at UC Berkeley during Spring 2025 and Summer 2025. My research interest lies in generative model and large language model, with a specific interest in **AI for Math**, which **leverage AI models to solve high-level math problems**. I was an intern working on LLM for Math at **Stanford University** advised by <a href = "https://lupantech.github.io/">Pan Lu </a> and <a href = "https://www.james-zou.com/">James Zou</a>, and at **Alibaba DAMO Academy** supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in **Yale University** guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
 
 
 
@@ -38,7 +38,7 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.i
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2025 Spotlight</div><img src='images/ineqmath.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-<span style="font-size: 1.5em;"><a href="https://arxiv.org/abs/2506.07927">Solving Inequality Proofs with Large Language Models</a></span>
+<span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2506.07927">Solving Inequality Proofs with Large Language Models</a></span>
   
 **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou <sup>&#8224;</sup>, Pan Lu <sup>&#8224;</sup>
 
@@ -61,7 +61,7 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.i
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/auto_verify.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-<span style="font-size: 1.5em;">Auto-Verify: A Plug-and-Play Step-wise Verification
+<span style="font-size: 1.3em;">Auto-Verify: A Plug-and-Play Step-wise Verification
 and Self-Correction Pipeline in Mathematical Reasoning</span>
 
 
@@ -93,6 +93,7 @@ and Self-Correction Pipeline in Mathematical Reasoning</span>
 
 # 💻 Internships
 
+- *2025.02 - 2025.08* , **Stanford University**, USA.
 - *2024.06 - 2025.01* , **DAMO Academy, Alibaba Group**, USA.
 - *2024.06 - 2024.10* , **Zhao’s Lab, Yale University**, USA.
 - *2023.06 - 2024.06*, **Thz Lab in College of Mathematics, Sichuan University**, China.
