@@ -23,6 +23,7 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 
 
 # 🔥 News
+- 2025.9: 🎉🎉 Our paper **"Solving Inequality Proofs with Large Language Models"** is accepted at **NeurIPS 2025** as a **Spotlight**!
 
 - 2025.1: 🎉🎉 Finished my new paper **Auto-Verify: A Plug-and-Play Step-wise Verification
 and Self-Correction Pipeline in Mathematical Reasoning**!
@@ -37,9 +38,10 @@ and Self-Correction Pipeline in Mathematical Reasoning**!
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2025 Spotlight</div><img src='images/ineqmath.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Solving Inequality Proofs with Large Language Models](https://arxiv.org/abs/2506.07927)
+<span style="font-size: 1.5em;"><a href="https://arxiv.org/abs/2506.07927">Solving Inequality Proofs with Large Language Models</a></span>
   
 **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou <sup>&#8224;</sup>, Pan Lu <sup>&#8224;</sup>
+
 [**Project**](https://ineqmath.github.io/)
 |
 [**Paper**](https://arxiv.org/abs/2509.09990)
@@ -59,9 +61,9 @@ and Self-Correction Pipeline in Mathematical Reasoning**!
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/auto_verify.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
+<span style="font-size: 1.5em;">Auto-Verify: A Plug-and-Play Step-wise Verification
+and Self-Correction Pipeline in Mathematical Reasoning</span>
 
-[Auto-Verify: A Plug-and-Play Step-wise Verification
-and Self-Correction Pipeline in Mathematical Reasoning](https://drive.google.com/file/d/1UR0B5ziAKzdn8dEMkYHRZQeDb9kO1gqV/view?usp=sharing)
 
 **Jiayi Sheng\***, Jinrui Zhang\*, Xuran Chen, Chenyang Deng, Wotao Yin
 
@@ -77,6 +79,8 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://drive.google.com
 
 - GPA(top 1%): 3.96/4.0
 - Selected Course (Out of 100 points):   Probability Theory (100),  Multivariable Statistics(99), Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Function of Real Variable (95), Function of Complex Variable (95), Numerical Analysis (95), Computer Networks(100), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
+
+- Courses at UC Berkeley: **STAT154**-Modern Statistical Prediction and Machine Learning **(A+)**, **CS188**-Introduction to Artificial Intelligence **(A+)**, **CS61A**-An introduction to programming and computer science **(A)**
 
 
 
