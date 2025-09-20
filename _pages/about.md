@@ -69,6 +69,8 @@ and Self-Correction Pipeline in Mathematical Reasoning</span>
 
 **Jiayi Sheng\***, Jinrui Zhang\*, Xuran Chen, Chenyang Deng, Wotao Yin
 
+Preprint
+
 (\*Co-first Author)
 
 <!-- [**Paper**](https://drive.google.com/file/d/1UR0B5ziAKzdn8dEMkYHRZQeDb9kO1gqV/view?usp=sharing) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong> -->
