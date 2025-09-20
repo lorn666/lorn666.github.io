@@ -110,10 +110,10 @@ and Self-Correction Pipeline in Mathematical Reasoning</span>
 - Excellent Student Cadre of Sichuan University (Top 10%)
 - Honorable Mention in the Mathematical Contest In Modeling
 
-  <footer class="footer">
+  <footer class="footer" style="font-size:0.8em;">
     <div class="content has-text-centered">
       <div style="display: flex; justify-content: center; align-items: center;">
-        <div style="max-width:320px; min-width:220px; width:100%; display:flex; justify-content:center;">
+        <div style="max-width:120px; min-width:80px; width:100%; display:flex; justify-content:center;">
           <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=XuGCk0QNqefpJaBDYT1hm6U3wH-dIy6LMI2O18TfpCE"></script>
         </div>
       </div>
