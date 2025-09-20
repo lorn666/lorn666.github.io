@@ -23,10 +23,10 @@ Hi! I am a senior undergraduate student majoring Statistics & Mathematics and mi
 
 
 # 🔥 News
-- 2025.9: 🎉🎉 Our paper **"Solving Inequality Proofs with Large Language Models"** is accepted at **NeurIPS 2025** as a **Spotlight**!
+- 2025.9: 🎉🎉 Our paper [Solving Inequality Proofs with Large Language Models](https://arxiv.org/abs/2506.07927) is accepted at [NeurIPS 2025](https://nips.cc/Conferences/2025) as a **Spotlight**!
 
-- 2025.1: 🎉🎉 Finished my new paper **Auto-Verify: A Plug-and-Play Step-wise Verification
-and Self-Correction Pipeline in Mathematical Reasoning**!
+- 2025.1: 🎉🎉 Finished our new paper [Auto-Verify: A Plug-and-Play Step-wise Verification
+and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.io/)!
 
 <span class='anchor' id='-Coursework'></span>
 
@@ -77,10 +77,10 @@ and Self-Correction Pipeline in Mathematical Reasoning</span>
 
 #  📝Coursework
 
-- GPA(top 1%): 3.96/4.0
-- Selected Course (Out of 100 points):   Probability Theory (100),  Multivariable Statistics(99), Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Function of Real Variable (95), Function of Complex Variable (95), Numerical Analysis (95), Computer Networks(100), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
+- **GPA(top 1%):** 3.96/4.0
+- **Selected Course (Out of 100 points):**   Probability Theory (100),  Multivariable Statistics(99), Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Function of Real Variable (95), Function of Complex Variable (95), Numerical Analysis (95), Computer Networks(100), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
 
-- Courses at UC Berkeley: **STAT154**-Modern Statistical Prediction and Machine Learning **(A+)**, **CS188**-Introduction to Artificial Intelligence **(A+)**, **CS61A**-An introduction to programming and computer science **(A)**
+- **Courses at UC Berkeley:** **STAT154**-Modern Statistical Prediction and Machine Learning **(A+)**, **CS188**-Introduction to Artificial Intelligence **(A+)**, **CS61A**-An introduction to programming and computer science **(A)**
 
 
 
