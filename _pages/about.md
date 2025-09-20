@@ -18,14 +18,14 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at Sichuan University. I was an exchange student at University of California, Berkeley during Spring 2025. My research interest lies in generative model and large language model, with a specific interest in **AI for Math**, which **leverage AI models to solve high-level math problems**. I was an intern working on LLM for Math at Stanford University advised by <a href = "https://lupantech.github.io/">Pan Lu </a> and <a href = "https://www.james-zou.com/">James Zou</a>, and at Alibaba DAMO Academy supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in Yale University guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
+Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at SCU. I was an exchange student at UC Berkeley during Spring 2025 and Summer 2025. My research interest lies in generative model and large language model, with a specific interest in **AI for Math**, which **leverage AI models to solve high-level math problems**. I was an intern working on LLM for Math at Stanford University advised by <a href = "https://lupantech.github.io/">Pan Lu </a> and <a href = "https://www.james-zou.com/">James Zou</a>, and at Alibaba DAMO Academy supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in Yale University guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
 
 
 
 # 🔥 News
 
-- 2025.1: &nbsp;🎉🎉 Finished my new paper Auto-Verify: A Plug-and-Play Step-wise Verification
-and Self-Correction Pipeline in Mathematical Reasoning!
+- 2025.1: 🎉🎉 Finished my new paper **Auto-Verify: A Plug-and-Play Step-wise Verification
+and Self-Correction Pipeline in Mathematical Reasoning**!
 
 <span class='anchor' id='-Coursework'></span>
 
@@ -33,7 +33,30 @@ and Self-Correction Pipeline in Mathematical Reasoning!
 
 # 📝 Papers
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/pipeline.png' alt="sym" width="100%"></div></div>
+<!-- IneqMath -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2025 Spotlight</div><img src='images/papers/ineqmath.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[Solving Inequality Proofs with Large Language Models](https://arxiv.org/abs/2506.07927)
+  
+**Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou <sup>\(\dagger\)</sup>, Pan Lu <sup>\(\dagger\)</sup>
+[**Project**](https://ineqmath.github.io/)
+|
+[**Paper**](https://arxiv.org/abs/2509.09990)
+|
+[**Code**](https://github.com/lupantech/ineqmath)
+|
+[**Dataset**](https://huggingface.co/datasets/AI4Math/IneqMath)
+|
+[**Leaderboard**](https://huggingface.co/spaces/AI4Math/IneqMath-Leaderboard)
+
+(\*Co-first Author, <sup>\(\dagger\)</sup> Co-senior authors)
+
+</div>
+</div>
+
+<!-- Auto-verify -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/auto_verify.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 
@@ -42,7 +65,7 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://drive.google.com
 
 **Jiayi Sheng\***, Jinrui Zhang\*, Xuran Chen, Chenyang Deng, Wotao Yin
 
-(\*Equal Contribution)
+(\*Co-first Author)
 
 <!-- [**Paper**](https://drive.google.com/file/d/1UR0B5ziAKzdn8dEMkYHRZQeDb9kO1gqV/view?usp=sharing) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong> -->
 </div>
