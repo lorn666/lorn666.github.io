@@ -52,7 +52,7 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.i
 |
 [**Leaderboard**](https://huggingface.co/spaces/AI4Math/IneqMath-Leaderboard)
 
-[NeurIPS 2025](https://nips.cc/Conferences/2025) <span style="color: red;">Spotlight (Top 3% of all submissions)</span>
+[NeurIPS 2025](https://nips.cc/Conferences/2025) <span style="color: red;"><b>Spotlight (Top 3% of all submissions)</b></span>
 
 (\*Co-first Author, <sup>&#8224;</sup> Co-senior authors)
 
