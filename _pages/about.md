@@ -18,14 +18,14 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am a junior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at Sichuan University. I’m now an exchange student at University of California, Berkeley. My research interest lies in  generative model and large language model, with a specific interest in **AI for Math**, which **leverage AI models to solve high-level math problems**.  I was an intern working on LLM for Math at Alibaba DAMO Academy advised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in Yale University guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
+Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at Sichuan University. I was an exchange student at University of California, Berkeley during Spring 2025. My research interest lies in generative model and large language model, with a specific interest in **AI for Math**, which **leverage AI models to solve high-level math problems**. I was an intern working on LLM for Math at Stanford University advised by <a href = "https://lupantech.github.io/">Pan Lu </a> and <a href = "https://www.james-zou.com/">James Zou</a>, and at Alibaba DAMO Academy supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in Yale University guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
 
 
 
 # 🔥 News
 
-- 2025.1: &nbsp;🎉🎉 I finished my new paper!
-- *2024.12*: &nbsp;🎉🎉 I initialized my Homepage!
+- 2025.1: &nbsp;🎉🎉 Finished my new paper Auto-Verify: A Plug-and-Play Step-wise Verification
+and Self-Correction Pipeline in Mathematical Reasoning!
 
 <span class='anchor' id='-Coursework'></span>
 

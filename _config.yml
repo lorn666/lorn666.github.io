@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Jiayi Sheng Homepage"
-description              : 
+description              : Welcome to my homepage!
 repository               : "lorn666/lorn666.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Jiayi Sheng"
   avatar           : "images/my_photos_v3.png"
-  bio              : "Undergraduate \n, interested in Large Language Model, Machine Learning."
+  bio              : "Senior Undergraduate\n, interested in Large Language Model, Machine Learning."
   location         : "Beijing, China"
   employer         :
   pubmed           : 
