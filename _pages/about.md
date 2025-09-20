@@ -86,8 +86,8 @@ and Self-Correction Pipeline in Mathematical Reasoning</span>
 
 # 📖 Educations
 
-- 2022.06 - Present, B.Sc. in Mathematics & Statistics, Sichuan University
-- *2025.01 - 2025.05*, Exchange at University of California, Berkeley
+- 2022.06 - Present, B.Sc. in Mathematics & Statistics (Minor in Software Engineering), SCU
+- *2025.01 - 2025.08*, Exchange at UC Berkeley
 
 
 
@@ -111,15 +111,11 @@ and Self-Correction Pipeline in Mathematical Reasoning</span>
 - Honorable Mention in the Mathematical Contest In Modeling
 
   <footer class="footer">
-    <!-- <div class="container"> -->
     <div class="content has-text-centered">
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-4" style="display: flex; align-items: center; justify-content: flex-end;">
-        <div style="max-width:320px; min-width:220px; width:100%; display:flex; justify-content:flex-end;">
-          <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=XuGCk0QNqefpJaBDYT1hm6U3wH-dIy6LMI2O18TfpCE&cl=ffffff&w=a"></script>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <div style="max-width:320px; min-width:220px; width:100%; display:flex; justify-content:center;">
+          <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=XuGCk0QNqefpJaBDYT1hm6U3wH-dIy6LMI2O18TfpCE"></script>
         </div>
       </div>
     </div>
-    <!-- </div> -->
   </footer>
