@@ -52,6 +52,8 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.i
 |
 [**Leaderboard**](https://huggingface.co/spaces/AI4Math/IneqMath-Leaderboard)
 
+[NeurIPS 2025](https://nips.cc/Conferences/2025) <span style="color: red;">Spotlight (Top 3% of all submissions)</span>
+
 (\*Co-first Author, <sup>&#8224;</sup> Co-senior authors)
 
 </div>
@@ -78,7 +80,7 @@ and Self-Correction Pipeline in Mathematical Reasoning</span>
 #  📝Coursework
 
 - **GPA(top 1%):** 3.96/4.0
-- **Selected Course (Out of 100 points):**   Probability Theory (100),  Multivariable Statistics(99), Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Function of Real Variable (95), Function of Complex Variable (95), Numerical Analysis (95), Computer Networks(100), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
+- **Selected Courses (Out of 100 points):**   Probability Theory (100),  Multivariable Statistics(99), Mathematical Analysis (99), Advanced Algebra (96), Ordinary Differential Equations (98), Mathematical Modeling and Experiment (98), Function of Real Variable (95), Function of Complex Variable (95), Numerical Analysis (95), Computer Networks(100), Fundamentals of C Programming (100), Computational Thinking and Computers (100)
 
 - **Courses at UC Berkeley:** **STAT154**-Modern Statistical Prediction and Machine Learning **(A+)**, **CS188**-Introduction to Artificial Intelligence **(A+)**, **CS61A**-An introduction to programming and computer science **(A)**
 
