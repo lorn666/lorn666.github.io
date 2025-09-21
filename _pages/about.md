@@ -44,7 +44,7 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.i
 
 [**Project**](https://ineqmath.github.io/)
 |
-[**Paper**](https://arxiv.org/abs/2509.09990)
+[**Paper**](https://arxiv.org/abs/2506.07927)
 |
 [**Code**](https://github.com/lupantech/ineqmath)
 |
