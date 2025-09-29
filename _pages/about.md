@@ -20,6 +20,7 @@ redirect_from:
 
 Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at SCU. I was an exchange student at UC Berkeley during Spring 2025 and Summer 2025. My research interest lies in generative model and large language model, with a specific interest in **AI for Math**, which **leverage AI models to solve high-level math problems**. I was an intern working on LLM for Math at **Stanford University** advised by <a href = "https://lupantech.github.io/">Pan Lu </a> and <a href = "https://www.james-zou.com/">James Zou</a>, and at **Alibaba DAMO Academy** supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in **Yale University** guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
 
+<span style="color: red;"><b>I am now looking for Fall 2026 Ph.D. position.</b></span>
 
 
 # 🔥 News
