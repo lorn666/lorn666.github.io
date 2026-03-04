@@ -57,7 +57,7 @@ Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 </div>
 
 <!-- OBLR-PO -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/oblrpo.png' alt="sym" width="90%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/oblrpo.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 <span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2511.23310">OBLR-PO: A Theoretical Framework for Stable Reinforcement Learning</a></span>
