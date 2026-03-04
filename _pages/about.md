@@ -53,6 +53,8 @@ Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 
 [NeurIPS 2025](https://nips.cc/Conferences/2025) <span style="color: red;"><b>Spotlight (Top 3% of all submissions)</b></span>
 
+(\*Co-first Author)
+
 </div>
 </div>
 
@@ -65,6 +67,8 @@ Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 Zixun Huang\*, **Jiayi Sheng**\*, Zeyu Zheng
 
 [**Paper**](https://arxiv.org/abs/2511.23310)
+
+(\*Co-first Author)
 
 </div>
 </div>
