@@ -18,9 +18,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at SCU. I was an exchange student at UC Berkeley during Spring 2025 and Summer 2025. My research interest lies in generative model and large language model, with a specific interest in **AI for Math**, which **leverage AI models to solve high-level math problems**. I was an intern working on LLM for Math at **Stanford University** advised by <a href = "https://lupantech.github.io/">Pan Lu </a> and <a href = "https://www.james-zou.com/">James Zou</a>, and at **Alibaba DAMO Academy** supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in **Yale University** guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
-
-<span style="color: red;"><b>I am now looking for Fall 2026 Ph.D. position.</b></span>
+Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at SCU. I was an exchange student at UC Berkeley during Spring 2025 and Summer 2025. My research interest lies in generative model and large language model, with a specific interest in **AI for Science**, which **leverage AI models to solve high-level science problems**. I was an intern working on LLM for Math at **Stanford University** advised by <a href = "https://lupantech.github.io/">Pan Lu </a> and <a href = "https://www.james-zou.com/">James Zou</a>, and at **Alibaba DAMO Academy** supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in **Yale University** guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
 
 
 # 🔥 News
@@ -41,7 +39,7 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.i
 
 <span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2506.07927">Solving Inequality Proofs with Large Language Models</a></span>
   
-**Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou <sup>&#8224;</sup>, Pan Lu <sup>&#8224;</sup>
+Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 
 [**Project**](https://ineqmath.github.io/)
 |
@@ -55,7 +53,18 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.i
 
 [NeurIPS 2025](https://nips.cc/Conferences/2025) <span style="color: red;"><b>Spotlight (Top 3% of all submissions)</b></span>
 
-(\*Co-first Author, <sup>&#8224;</sup> Co-senior authors)
+</div>
+</div>
+
+<!-- OBLR-PO -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/oblrpo.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+<span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2506.07927">OBLR-PO: A Theoretical Framework for Stable Reinforcement Learning</a></span>
+  
+Zixun Huang\*, **Jiayi Sheng**\*, Zeyu Zheng
+
+[**Paper**](https://arxiv.org/abs/2511.23310)
 
 </div>
 </div>
