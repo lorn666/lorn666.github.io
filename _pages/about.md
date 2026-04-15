@@ -67,7 +67,7 @@ Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/video_hallucination.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-<span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2511.23310">A Survey on Hallucination in Video Understanding: Taxonomy, Causes, and Mitigation Techniques</a></span>
+<span style="font-size: 1.3em;"><a href="https://github.com/lorn666/video-understanding-hallucination-survey">A Survey on Hallucination in Video Understanding: Taxonomy, Causes, and Mitigation Techniques</a></span>
   
 **Jiayi Sheng**, Wei Luo, Wotao Yin
 
