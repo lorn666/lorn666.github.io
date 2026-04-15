@@ -18,13 +18,18 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am a senior undergraduate student majoring Statistics & Mathematics and minoring Software Engineering at SCU. I was an exchange student at UC Berkeley during Spring 2025 and Summer 2025. My research interest lies in generative model and large language model, with a specific interest in **AI for Science**, which **leverage AI models to solve high-level science problems**. I was an intern working on LLM for Math at **Stanford University** advised by <a href = "https://lupantech.github.io/">Pan Lu </a> and <a href = "https://www.james-zou.com/">James Zou</a>, and at **Alibaba DAMO Academy** supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I also did some research on Imputation of Spatial Transcriptomics via Diffusion Model in **Yale University** guided by <a href = "https://ysph.yale.edu/profile/hongyu-zhao/">Hongyu Zhao</a>  and <a href = "https://gefeiwang.github.io/">Gefei Wang</a> .
+Hi! I am an incoming Master’s student in the <a href = "https://wotaoyin.mathopt.com/">Machine Learning Department</a> at the School of Computer Science at **CMU**. I am currently a senior undergraduate at SCU, majoring in Statistics and Mathematics with a minor in Software Engineering. I was also an exchange student at UC Berkeley during Spring and Summer 2025. My research interest lies in generative model and large language model. I'm now an intern working on AI for science at **Alibaba Group US DAMO Academy** supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I am always excited to discussing cool ideas and potential collaborations!
 
 
 # 🔥 News
+
+- 2026.4: 🎉 Our paper [A Survey on Hallucination in Video Understanding: Taxonomy, Causes, and Mitigation Techniques](https://github.com/lorn666/video-understanding-hallucination-survey) is released now! 
+
+- 2026.3 🎉 I will be joining **CMU** as a Master’s student in the **Machine Learning Department** in Fall 2026!
+
 - 2025.9: 🎉🎉 Our paper [Solving Inequality Proofs with Large Language Models](https://arxiv.org/abs/2506.07927) is accepted at [NeurIPS 2025](https://nips.cc/Conferences/2025) as a **Spotlight**!
 
-- 2025.1: 🎉🎉 Finished our new paper [Auto-Verify: A Plug-and-Play Step-wise Verification
+- 2025.1: Finished our new paper [Auto-Verify: A Plug-and-Play Step-wise Verification
 and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.io/)!
 
 <span class='anchor' id='-Coursework'></span>
@@ -54,6 +59,20 @@ Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 [NeurIPS 2025](https://nips.cc/Conferences/2025) <span style="color: red;"><b>Spotlight (Top 3% of all submissions)</b></span>
 
 (\*Co-first Author)
+
+</div>
+</div>
+
+<!-- Video Understanding Survey -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/video_hallucination.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+<span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2511.23310">A Survey on Hallucination in Video Understanding: Taxonomy, Causes, and Mitigation Techniques</a></span>
+  
+**Jiayi Sheng**, Wei Luo, Wotao Yin
+
+[**Paper**](https://github.com/lorn666/video-understanding-hallucination-survey)
+
 
 </div>
 </div>
