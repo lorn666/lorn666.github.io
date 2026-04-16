@@ -18,7 +18,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am an incoming Master’s student in the <a href = "https://wotaoyin.mathopt.com/">Machine Learning Department</a> at the School of Computer Science at **CMU**. I am currently a senior undergraduate at SCU, majoring in Statistics and Mathematics with a minor in Software Engineering. I was also an exchange student at UC Berkeley during Spring and Summer 2025. My research interest lies in generative model and large language model. I'm now an intern working on AI for science at **Alibaba Group US DAMO Academy** supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I am always excited to discussing cool ideas and potential collaborations!
+Hi! I am an incoming Master’s student in the <a href = "https://wotaoyin.mathopt.com/">Machine Learning Department</a> at the School of Computer Science at <a href = "https://www.cmu.edu/">Carnegie Mellon University</a>. I am currently a senior undergraduate at SCU, majoring in Statistics and Mathematics with a minor in Software Engineering. I was also an exchange student at UC Berkeley during Spring and Summer 2025. My research interest lies in generative model and large language model. I'm now an intern working on AI for science at Alibaba Group US DAMO Academy supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I am always excited to discussing cool ideas and potential collaborations!
 
 
 # 🔥 News
@@ -122,14 +122,15 @@ Preprint
 
 
 # 📖 Educations
-
-- 2022.06 - Present, B.Sc. in Mathematics & Statistics (Minor in Software Engineering), SCU
+- 2026.09 - 2028.05 (Expected), M.Sc. in Machine Learning, CMU
+- 2022.09 - 2026.06, B.Sc. in Mathematics & Statistics (Minor in Software Engineering), SCU
 - *2025.01 - 2025.08*, Exchange at UC Berkeley
 
 
 
 # 💻 Internships
 
+- *2026.01 - Present* , **DAMO Academy, Alibaba Group**, USA.
 - *2025.02 - 2025.08* , **Stanford University**, USA.
 - *2024.06 - 2025.01* , **DAMO Academy, Alibaba Group**, USA.
 - *2024.06 - 2024.10* , **Zhao’s Lab, Yale University**, USA.
@@ -142,10 +143,10 @@ Preprint
 
 - **National Scholarship**  (10,000 CNY, Top 1%, **twice**)
 - Sichuan University "Youth Medal" (Top 0.1%)
-
+- Sichuan University Presidential Scholarship (Top 0.1%)
+- Outstanding Graduate of Sichuan Province (Top 5%)
 - Excellent Student of Sichuan University (Top 10%)
 - Excellent Student Cadre of Sichuan University (Top 10%)
-- Honorable Mention in the Mathematical Contest In Modeling
 
   <footer class="footer" style="font-size:0.8em;">
     <div class="content has-text-centered">
