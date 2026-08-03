@@ -18,10 +18,12 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am an incoming Master’s student in the <a href = "https://wotaoyin.mathopt.com/">Machine Learning Department</a> at the School of Computer Science at <a href = "https://www.cmu.edu/">Carnegie Mellon University</a>. I am currently a senior undergraduate at SCU, majoring in Statistics and Mathematics with a minor in Software Engineering. I was also an exchange student at UC Berkeley during Spring and Summer 2025. My research interest lies in generative model and large language model. I'm now an intern working on AI for science at Alibaba Group US DAMO Academy supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I am always excited to discussing cool ideas and potential collaborations!
+Hi! I am a Master’s student in the <a href = "https://www.ml.cmu.edu/">Machine Learning Department</a> at the School of Computer Science at <a href = "https://www.cmu.edu/">Carnegie Mellon University</a>. I earned my B.Sc. and B.Eng. degree from SCU, where I majored in Statistics and Mathematics and minored in Software Engineering. I was also an exchange student at UC Berkeley during Spring and Summer 2025. My research interest lies in generative model and large language model. I was also an intern working on AI for science at Alibaba Group US DAMO Academy supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I am always excited to discussing cool ideas and potential collaborations!
 
 
 # 🔥 News
+
+- 2026.8: 🎉🎉 Our paper [A Survey on Hallucination in Video Understanding: Taxonomy, Causes, and Mitigation Techniques](https://openreview.net/forum?id=qbO71rVrIG) is accepted at TMLR! Click the [link](https://openreview.net/forum?id=qbO71rVrIG) to check out!
 
 - 2026.4: 🎉 Our paper [A Survey on Hallucination in Video Understanding: Taxonomy, Causes, and Mitigation Techniques](https://github.com/lorn666/video-understanding-hallucination-survey) is released now! 
 
@@ -37,6 +39,20 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.i
 
 
 # 📝 Papers
+
+<!-- Video Understanding Survey -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">TMLR</div><img src='images/video_hallucination.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+<span style="font-size: 1.3em;"><a href="https://openreview.net/forum?id=qbO71rVrIG">A Survey on Hallucination in Video Understanding: Taxonomy, Causes, and Mitigation Techniques</a></span>
+  
+**Jiayi Sheng**, Wei Luo, Wotao Yin
+
+[**Paper**](https://github.com/lorn666/video-understanding-hallucination-survey)
+
+
+</div>
+</div>
 
 <!-- IneqMath -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2025 Spotlight</div><img src='images/ineqmath.png' alt="sym" width="100%"></div></div>
@@ -58,21 +74,6 @@ Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 
 [NeurIPS 2025](https://nips.cc/Conferences/2025) <span style="color: red;"><b>Spotlight (Top 3% of all submissions)</b></span>
 
-(\*Co-first Author)
-
-</div>
-</div>
-
-<!-- Video Understanding Survey -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/video_hallucination.jpg' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-<span style="font-size: 1.3em;"><a href="https://github.com/lorn666/video-understanding-hallucination-survey">A Survey on Hallucination in Video Understanding: Taxonomy, Causes, and Mitigation Techniques</a></span>
-  
-**Jiayi Sheng**, Wei Luo, Wotao Yin
-
-[**Paper**](https://github.com/lorn666/video-understanding-hallucination-survey)
-
 
 </div>
 </div>
@@ -81,18 +82,17 @@ Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/oblrpo.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-<span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2511.23310">OBLR-PO: A Theoretical Framework for Stable Reinforcement Learning</a></span>
+<span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2511.23310v3">Variance-Aware Baselines and Adaptive Learning Rates for Reinforcement Learning with Verifiable Rewards</a></span>
   
 Zixun Huang\*, **Jiayi Sheng**\*, Zeyu Zheng
 
-[**Paper**](https://arxiv.org/abs/2511.23310)
+[**Paper**](https://arxiv.org/abs/2511.23310v3)
 
-(\*Co-first Author)
 
 </div>
 </div>
 
-<!-- Auto-verify -->
+<!-- Auto-verify
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/auto_verify.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -106,9 +106,9 @@ Preprint
 
 (\*Co-first Author)
 
-<!-- [**Paper**](https://drive.google.com/file/d/1UR0B5ziAKzdn8dEMkYHRZQeDb9kO1gqV/view?usp=sharing) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong> -->
+[**Paper**](https://drive.google.com/file/d/1UR0B5ziAKzdn8dEMkYHRZQeDb9kO1gqV/view?usp=sharing) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
 </div>
-</div>
+</div> -->
 
 
 
@@ -123,7 +123,7 @@ Preprint
 
 # 📖 Educations
 - 2026.09 - 2028.05 (Expected), M.Sc. in Machine Learning, CMU
-- 2022.09 - 2026.06, B.Sc. in Mathematics & Statistics (Minor in Software Engineering), SCU
+- 2022.09 - 2026.06, B.Sc. in Mathematics & Statistics, and B.Eng. in Software Engineering (minor), SCU
 - *2025.01 - 2025.08*, Exchange at UC Berkeley
 
 
@@ -139,14 +139,14 @@ Preprint
 
 
 
-# 🎖 Honors and Awards
+<!-- # 🎖 Honors and Awards
 
 - **National Scholarship**  (10,000 CNY, Top 1%, **twice**)
 - Sichuan University "Youth Medal" (Top 0.1%)
 - Sichuan University Presidential Scholarship (Top 0.1%)
 - Outstanding Graduate of Sichuan Province (Top 5%)
 - Excellent Student of Sichuan University (Top 10%)
-- Excellent Student Cadre of Sichuan University (Top 10%)
+- Excellent Student Cadre of Sichuan University (Top 10%) -->
 
   <footer class="footer" style="font-size:0.8em;">
     <div class="content has-text-centered">
