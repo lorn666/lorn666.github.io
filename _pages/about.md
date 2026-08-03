@@ -48,7 +48,9 @@ and Self-Correction Pipeline in Mathematical Reasoning](https://lorn666.github.i
   
 **Jiayi Sheng**, Wei Luo, Wotao Yin
 
-[**Paper**](https://github.com/lorn666/video-understanding-hallucination-survey)
+[**Paper**](https://openreview.net/forum?id=qbO71rVrIG)
+
+[Transactions on Machine Learning Research (TMLR)](https://jmlr.org/tmlr/)
 
 
 </div>
