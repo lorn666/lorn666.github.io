@@ -132,7 +132,7 @@ Preprint
 
 # 💻 Internships
 
-- *2026.01 - Present* , **DAMO Academy, Alibaba Group**, USA.
+- *2026.01 - 2026.07* , **DAMO Academy, Alibaba Group**, USA.
 - *2025.02 - 2025.08* , **Stanford University**, USA.
 - *2024.06 - 2025.01* , **DAMO Academy, Alibaba Group**, USA.
 - *2024.06 - 2024.10* , **Zhao’s Lab, Yale University**, USA.
