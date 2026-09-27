@@ -94,6 +94,21 @@ Zixun Huang\*, **Jiayi Sheng**\*, Zeyu Zheng
 </div>
 </div>
 
+<!-- ScholarStack -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/scholarstack.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+<span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2609.23735">ScholarStack: Layered Research Asset Orchestration and Cross-Task Reuse for Scientific Agents</a></span>
+  
+ScholarSeed AI Team
+
+Core contributor (alphabetical order by last name): Caoqinwei Gong, Xue Jiang, Wei Luo, Xiaoyu Qiu, **Jiayi Sheng**, Yi Wang, Zheng Yu, Ao Zhang, Haifan Zhang, Hanwei Zhang, Jihai Zhang
+
+[**Paper**](https://arxiv.org/abs/2609.23735)
+
+</div>
+</div>
+
 <!-- Auto-verify
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/auto_verify.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
