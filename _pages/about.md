@@ -81,7 +81,7 @@ Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 </div>
 
 <!-- OBLR-PO -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Under Review</div><img src='images/oblrpo.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2026 FLLMPT</div><img src='images/oblrpo.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 <span style="font-size: 1.3em;"><a href="https://arxiv.org/abs/2511.23310v4">Variance-Aware Baselines and Adaptive Learning Rates for Reinforcement Learning with Verifiable Rewards</a></span>
@@ -89,6 +89,8 @@ Pan Lu\*, **Jiayi Sheng**\*, Luna Lyu\*, Jikai Jin, Tony Xia, Alex Gu, James Zou
 Zixun Huang\*, **Jiayi Sheng**\*, Zeyu Zheng
 
 [**Paper**](https://arxiv.org/abs/2511.23310v4)
+
+[NeurIPS 2026 FLLMPT Workshop](https://www.fllmpt-work.shop/)
 
 
 </div>
