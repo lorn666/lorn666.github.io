@@ -772,14 +772,8 @@
     <div class="result-card">
       <h4>Replay drifts away and collapses</h4>
       <p>
-        On GSM8K with SmolLM2-360M-Instruct, uncorrected MaxRL replay collapses while the divergence from the rollout policy grows by several orders of magnitude. Importance sampling and score centering delay the collapse but do not prevent the replayed policy from falling behind online RL. SFT on the same rollouts keeps the divergence small throughout training.
+        On GSM8K with SmolLM2-360M-Instruct, uncorrected MaxRL replay collapses while the divergence from the rollout policy grows by several orders of magnitude. Importance sampling and score centering delay the collapse but do not prevent the replayed policy from falling behind online RL. SFT on the same rollouts keeps the divergence small throughout training (<a href="#abstract">figure under the abstract</a>).
       </p>
-      <div class="figure-container">
-        <center><img loading="lazy" decoding="async" src="./static/images/offline_smollm.png" alt="Offline RL replay drifts" style="max-width: 90%;"></center>
-        <p class="figure-caption">
-          <strong>Offline RL replay drifts away from the policy that generated the rollouts.</strong> (a) GSM8K pass@1. (b) $\mathrm{KL}(\pi_t\,\|\,\hat\pi_t)$ between the policy $\pi_t$ that generated each batch and the trained model $\hat\pi_t$.
-        </p>
-      </div>
       <div class="insight-box" style="margin-top: 1.5rem; margin-bottom: 0; border-left-color: #c44e52;">
         <p style="margin: 0; font-weight: 600; color: #c44e52;">
           Takeaway 1: Replaying the RL updates on saved rollouts drifts from the original run and collapses.
@@ -814,6 +808,13 @@
           Each SFT update pulls the student $\hat\pi_t$ back toward the policy $\pi_t$ that generated the batch, so small errors are corrected instead of amplified.
         </p>
       </div>
+
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/maximum_likelihood_replay_mechanism.png" alt="Maximum likelihood replay mechanism" style="max-width: 45%;"></center>
+        <p class="figure-caption">
+          <strong>Maximum likelihood replay mechanism.</strong> The online policy $\pi_t$ (dashed vermilion) generates batch $D_t$. The student (solid blue) takes one update on $D_t$ to fit $\pi_t$, yielding $\hat\pi_{t+1}$.
+        </p>
+      </div>
     </div>
 
     <div class="result-card">
@@ -824,7 +825,7 @@
       <div class="figure-container">
         <center><img loading="lazy" decoding="async" src="./static/images/sft_vs_online_maxrl_curves.png" alt="SFT follows the online learning curve" style="max-width: 100%;"></center>
         <p class="figure-caption">
-          <strong>Chronological SFT on archived rollouts follows the learning curve of online MaxRL.</strong> Pass@1 and pass@16 of Qwen3-1.7B-Base for SFT on the rollouts in their original order (blue, solid) and for online MaxRL (orange, dashed).
+          <strong>Chronological maximum likelihood replay follows the learning curve of online MaxRL.</strong> Pass@1 and pass@16 over training of Qwen3-1.7B-Base, for replay in the original batch order (solid blue) and for online MaxRL (dashed vermilion). The $y$-axes are broken where the two metrics are far apart.
         </p>
       </div>
     </div>
@@ -837,7 +838,7 @@
       <div class="figure-container">
         <center><img loading="lazy" decoding="async" src="./static/images/sft_vs_online_maxrl_passk.png" alt="Final pass@k" style="max-width: 100%;"></center>
         <p class="figure-caption">
-          <strong>Final-checkpoint pass@$k$.</strong> SFT on the MaxRL rollouts in their original order (solid) and online MaxRL (dashed), for Qwen3-1.7B-Base (blue/orange) and Qwen3-4B-Base (green/red).
+          <strong>Chronological maximum likelihood replay recovers the final checkpoint of online MaxRL.</strong> Final-checkpoint pass@$k$ for maximum likelihood replay in chronological order (solid blue) and online MaxRL (dashed vermilion). Open circles identify Qwen3-4B-Base. Unmarked curves show Qwen3-1.7B-Base.
         </p>
       </div>
       <div class="insight-box" style="margin-top: 1.5rem; margin-bottom: 0; border-left-color: #2a78d6;">
@@ -869,7 +870,7 @@
         <center><img loading="lazy" decoding="async" src="./static/images/replay_order.png" alt="Replay order" style="max-width: 100%;"></center>
         <center><img loading="lazy" decoding="async" src="./static/images/replay_order_error.png" alt="Replay order endpoint error" style="max-width: 100%; margin-top: 1rem;"></center>
         <p class="figure-caption">
-          <strong>Replay-order interventions.</strong> Top, pass@1 of SFT on the same archive in chronological, shuffled and reverse order. Bottom, the endpoint error of each order at step 1000.
+          <strong>The same rollouts produce different learning curves when replayed in different orders.</strong> Each maximum likelihood replay run starts from Qwen3-1.7B-Base and sees every batch from the Polaris-53K MaxRL run once. Right-pointing triangles mark chronological replay, left-pointing triangles mark reverse replay, and diamonds mark shuffled replay. The dashed vermilion curve shows online MaxRL. The bottom panel gives the endpoint error after 1,000 replay updates. Each dotted gray line marks the base model's endpoint error before replay.
         </p>
       </div>
       <div class="insight-box" style="margin-top: 1.5rem; margin-bottom: 0; border-left-color: #7e3fbf;">
@@ -908,13 +909,13 @@
       <div class="figure-container">
         <center><img loading="lazy" decoding="async" src="./static/images/last_step_sft.png" alt="Last-step recovery" style="max-width: 100%;"></center>
         <p class="figure-caption">
-          <strong>Endpoint recovery from the last RL step's rollouts.</strong> Final pass@$k$ of online MaxRL (orange, dashed) and of SFT from the base model on the rollouts of the last RL step (blue). For SmolLM2-360M-Instruct, SFT also trains on the last 5 and 50 steps.
+          <strong>Replaying the final batch nearly recovers online MaxRL performance on all three Qwen benchmarks.</strong> Repeated maximum likelihood updates from the base model on the last of 1,000 batches yield an endpoint error below one percentage point on each benchmark. On GSM8K, SmolLM2's endpoint error falls from 5.2 to 3.0 to 0.9 percentage points using the last 1, 5, and 50 batches, respectively.
         </p>
       </div>
       <div class="figure-container">
         <center><img loading="lazy" decoding="async" src="./static/images/sample_budget.png" alt="Sample budget" style="max-width: 100%;"></center>
         <p class="figure-caption">
-          <strong>How much of the last step's rollouts is needed.</strong> SFT on a random subset of $n$ of the 4096 rollouts of the last RL step, compared with the final online MaxRL checkpoint.
+          <strong>Minerva approaches full-batch replay with fewer rollouts than MATH-500.</strong> Each pair shows pass@1 and pass@8 after 100 maximum likelihood replay updates from Qwen3-1.7B-Base on $n$ randomly selected rollouts from the final Polaris-53K batch of 4,096 (solid blue). Dashed vermilion lines show final online MaxRL performance.
         </p>
       </div>
       <div class="insight-box" style="margin-top: 1.5rem; margin-bottom: 0; border-left-color: #1a9e77;">
@@ -945,14 +946,13 @@
       <div class="figure-container">
         <center><img loading="lazy" decoding="async" src="./static/images/compose_curves.png" alt="Composed student follows both specialists" style="max-width: 100%;"></center>
         <p class="figure-caption">
-          <strong>SFT on all rollouts of two RL specialists follows both training curves.</strong>
+          <strong>One replay student tracks two online MaxRL specialists.</strong> The solid blue curve shows the same student's pass@1 in all four panels. Dashed vermilion shows the math specialist on the first three benchmarks and the logic specialist on Knights and Knaves. Each online RL step corresponds to two student updates. AIME25 is smoothed over three evaluations.
         </p>
       </div>
       <div class="figure-container">
         <center><img loading="lazy" decoding="async" src="./static/images/composition.png" alt="Composition vs weight merging" style="max-width: 100%;"></center>
-        <center><img loading="lazy" decoding="async" src="./static/images/math_knk.png" alt="Composition vs weight merging" style="max-width: 100%;"></center>
         <p class="figure-caption">
-          <strong>Composing two RL specialists.</strong> Pass@$k$ on MATH-500 and Minerva against Knights and Knaves. Data-space composition is compared with weight-space merges of the two final checkpoints. The upper-right corner is best.
+          <strong>Replay on the final batch from each specialist retains performance on both tasks.</strong> Each point is one model evaluated at the same $k$ on the indicated math benchmark (horizontal axis) and on Knights and Knaves (vertical axis). The dashed lines intersect at the scores of the two online MaxRL specialists on their respective tasks. Blue diamonds show maximum likelihood replay on both full archives. Blue circles use only the two final batches, alternating between tasks (filled) or combining them in each update (open). Gray markers show weight merges of the final checkpoints.
         </p>
       </div>
     </div>
@@ -965,7 +965,7 @@
       <div class="figure-container">
         <center><img loading="lazy" decoding="async" src="./static/images/transfer_0p6b.png" alt="Transfer to Qwen3-0.6B" style="max-width: 100%;"></center>
         <p class="figure-caption">
-          <strong>Transfer from Qwen3-1.7B-Base to Qwen3-0.6B-Base.</strong> Pass@$k$ of the smaller model trained on samples from the final policy (distillation), on all rollouts, or on the rollouts of the last step.
+          <strong>Cross-model transfer by maximum likelihood replay.</strong> All curves show pass@$k$ for a Qwen3-0.6B-Base student. Blue diamonds show replay on the full rollout archive of a Qwen3-1.7B-Base teacher trained with MaxRL on Polaris-53K. Open blue circles show replay on its last batch alone. The dashed gray curve shows distillation on fresh samples from the final teacher checkpoint.
         </p>
       </div>
     </div>
