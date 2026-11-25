@@ -536,8 +536,8 @@
             <span class="author-block"><a href="https://jiayi-sheng.com/">Jiayi Sheng</a><sup>*,1</sup>,</span>
             <span class="author-block"><a href="https://jingwengu.github.io/">Jingwen Gu</a><sup>*,2</sup>,</span>
             <span class="author-block"><a href="https://guanning03.github.io/">Guanning Zeng</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="https://zhaoyizhou1123.github.io/">Zhaoyi Zhou</a><sup>1</sup>,</span><br>
-            <span class="author-block"><a href="https://stefanoviel.com/">Stefano Viel</a><sup>3</sup>,</span>
+            <span class="author-block"><a href="https://zhaoyizhou1123.github.io/">Zhaoyi Zhou</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://stefanoviel.com/">Stefano Viel</a><sup>3</sup>,</span><br>
             <span class="author-block"><a href="https://qianqianwang68.github.io/">Qianqian Wang</a><sup>4</sup>,</span>
             <span class="author-block"><a href="https://tajwarfahim.github.io/">Fahim Tajwar</a><sup>1</sup>,</span>
             <span class="author-block"><a href="https://azanette.com">Andrea Zanette</a><sup>1</sup></span>
@@ -545,7 +545,8 @@
           <div class="is-size-6 publication-authors" style="margin-top: 0.4rem;">
             <span class="author-block"><sup>1</sup>Carnegie Mellon University</span>
             <span class="author-block" style="margin-left: 0.8em;"><sup>2</sup>University of Illinois Urbana-Champaign</span>
-            <span class="author-block" style="margin-left: 0.8em;"><sup>3</sup>Tufa Labs</span>
+            <br>
+            <span class="author-block"><sup>3</sup>Tufa Labs</span>
             <span class="author-block" style="margin-left: 0.8em;"><sup>4</sup>Harvard University</span>
             <span class="author-block" style="margin-left: 0.8em;"><sup>*</sup>Equal Contribution</span>
           </div>
@@ -756,11 +757,17 @@
     <div class="result-card">
       <h4>Empirical evidence</h4>
       <p>
-        We replay the rollouts of an online MaxRL run of Qwen3-1.7B-Base on Polaris-53K and evaluate the replayed policy on MATH-500 (panel (a) of the <a href="#abstract">figure under the abstract</a>). With uncorrected MaxRL replay, pass@1 initially improves, then falls to nearly zero by step 100. With truncated token-level importance sampling, replay tracks online RL until roughly step 600, then drops sharply and only partially recovers.
+        We replay the rollouts of an online MaxRL run of Qwen3-1.7B-Base on Polaris-53K and evaluate the replayed policy on MATH-500 (panel (a) of the figure below). With uncorrected MaxRL replay, pass@1 initially improves, then falls to nearly zero by step 100. With truncated token-level importance sampling, replay tracks online RL until roughly step 600, then drops sharply and only partially recovers.
       </p>
       <p>
         We repeat the experiment with SmolLM2-360M-Instruct on GSM8K and track pass@1 alongside the per-token divergence $\mathrm{KL}(\pi_t\,\|\,\hat\pi_t)$ (panels (b) and (c)). With uncorrected MaxRL replay, the divergence grows by several orders of magnitude as performance collapses. Score centering reduces drift, but even with importance sampling the replayed policy eventually falls behind online RL.
       </p>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/replay_performance_and_drift.png" alt="Maximum likelihood replay tracks online MaxRL as offline RL replay drifts" style="max-width: 100%;"></center>
+        <p class="figure-caption">
+          <strong>Maximum likelihood replay tracks online MaxRL as offline RL replay drifts.</strong> Panels (a) and (b) show pass@1 on MATH-500 and GSM8K. Panel (c) shows the per-token $\mathrm{KL}(\pi_t\,\|\,\hat\pi_t)$ from the rollout-generating policy to each replayed policy on GSM8K, on a logarithmic scale. On MATH-500, we evaluate maximum likelihood replay and online MaxRL every 100 steps and offline RL replay every 10 steps. IS denotes truncated token-level importance sampling. Filled markers indicate score centering (SC).
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -805,7 +812,7 @@
     <div class="result-card">
       <h4>The whole learning curve is recovered</h4>
       <p>
-        Starting from the same base model, we take <strong>one maximum likelihood update on each archived batch in chronological order</strong>. On MATH-500, the student's pass@1 tracks online MaxRL throughout training. On GSM8K, the student's per-token KL divergence from the rollout-generating policy stays small throughout training (<a href="#abstract">figure under the abstract</a>).
+        Starting from the same base model, we take <strong>one maximum likelihood update on each archived batch in chronological order</strong>. On MATH-500, the student's pass@1 tracks online MaxRL throughout training. On GSM8K, the student's per-token KL divergence from the rollout-generating policy stays small throughout training (<a href="#replay">figure in the previous section</a>).
       </p>
       <p>
         Over 1,000 steps of MaxRL on Qwen3-1.7B-Base, the student closely tracks online pass@1 and pass@16 on MATH-500, AIME25, GPQA-Diamond, and Knights and Knaves. On Knights and Knaves, the student follows online MaxRL from near-zero accuracy through the steep rise in performance. Across the four benchmarks, the mean absolute gap in pass@$k$, averaged over evaluation checkpoints and values of $k$, ranges from 0.2 to 1.1 percentage points. The student tracks these gains using only the archived responses, with one update per batch and no reward labels.
