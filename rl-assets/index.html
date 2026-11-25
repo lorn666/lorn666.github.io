@@ -292,23 +292,36 @@
     
     
     .question-box {
-      margin: 1.75rem 0;
-      padding: 1.4rem 1.5rem;
-      border-top: 2px solid #ab1727;
-      border-bottom: 2px solid #ab1727;
+      margin: 2rem 0;
       text-align: center;
     }
     .question-box p {
       margin: 0;
       font-family: 'Castoro', Georgia, serif;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 600;
       line-height: 1.5;
-      color: #ab1727;
+      color: #d4606d;
     }
     @media (max-width: 768px) { .question-box p { font-size: 1.1rem; } .question-box br { display: none; } }
-    .weights-table { max-width: 520px; margin: 0 auto; }
-    .weights-table table.comparison-table { margin: 0.5rem 0 1.5rem 0; }
+    .weights-table { max-width: 460px; margin: 0 auto; }
+    .weights-table table.comparison-table {
+      margin: 0.5rem 0 1.5rem 0;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+    }
+    .weights-table table.comparison-table th {
+      background: #f9fafb;
+      color: var(--text-dark) !important;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .weights-table table.comparison-table th * ,
+    .weights-table table.comparison-table th .katex,
+    .weights-table table.comparison-table th .katex * { color: var(--text-dark) !important; }
+    .weights-table table.comparison-table th,
+    .weights-table table.comparison-table td { text-align: center; }
+    .weights-table table.comparison-table tr:hover td { background: transparent; }
 
     .conclusion-box {
       background: #fff;
