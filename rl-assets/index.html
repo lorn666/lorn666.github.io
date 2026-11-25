@@ -487,6 +487,38 @@
     }
     .video-wrapper { max-width: 960px; margin: 0 auto; }
     .video-wrapper video { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--border-light); background: #fff; }
+    /* Floating table of contents */
+    html { scroll-behavior: smooth; }
+    section[id] { scroll-margin-top: 12px; }
+    .article-contents {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      left: max(16px, calc((100vw - 960px) / 2 - 230px));
+      width: 190px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      font: 13px/1.45 'Noto Sans', sans-serif;
+      z-index: 20;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .article-contents.is-visible { opacity: 1; pointer-events: auto; }
+    .article-contents > span {
+      color: #9ca3af; font-size: 11px; font-weight: 600; letter-spacing: .07em;
+      text-transform: uppercase; padding: 0 0 8px 13px;
+    }
+    .article-contents a {
+      display: block; padding: 5px 0 5px 12px; color: #6b7280;
+      border-left: 1px solid #e5e7eb; text-decoration: none;
+    }
+    .article-contents a:hover, .article-contents a[aria-current] {
+      color: #ab1727; border-left: 2px solid #ab1727; padding-left: 11px;
+    }
+    @media (min-width: 1400px) { .article-contents { display: flex; } }
+    @media print { .article-contents { display: none !important; } }
   </style>
 </head>
 <body>
@@ -546,8 +578,24 @@
   </div>
 </section>
 
+<!-- Floating table of contents (wide screens only) -->
+<nav class="article-contents" aria-label="Contents">
+  <span>Contents</span>
+  <a href="#overview">Overview</a>
+  <a href="#abstract">Abstract</a>
+  <a href="#video">Video</a>
+  <a href="#setup">Saving the rollouts</a>
+  <a href="#replay">Offline RL replay</a>
+  <a href="#max-likelihood">Maximum likelihood</a>
+  <a href="#order">Rollout order</a>
+  <a href="#few-rollouts">Few rollouts suffice</a>
+  <a href="#applications">Further applications</a>
+  <a href="#conclusion">Conclusion</a>
+  <a href="#BibTeX">BibTeX</a>
+</nav>
+
 <!-- ==================== OVERVIEW ==================== -->
-<section class="section section-white" style="padding-top: 0.8rem; padding-bottom: 0.5rem;">
+<section id="overview" class="section section-white" style="padding-top: 0.8rem; padding-bottom: 0.5rem;">
   <div class="container is-max-desktop">
 
     <div class="figure-container" style="margin: 0;">
@@ -571,7 +619,7 @@
 </section>
 
 <!-- ==================== ABSTRACT ==================== -->
-<section class="section section-white" style="padding-top: 1.5rem;">
+<section id="abstract" class="section section-white" style="padding-top: 1.5rem;">
   <div class="container is-max-desktop">
     <h2 class="title is-3 section-title">Abstract</h2>
     <div class="content has-text-justified">
@@ -597,7 +645,7 @@
 </section>
 
 <!-- ==================== SETUP ==================== -->
-<section class="section section-white">
+<section id="setup" class="section section-white">
   <div class="container is-max-desktop">
     <div class="content has-text-justified">
 
@@ -661,7 +709,7 @@
 </section>
 
 <!-- ==================== OFFLINE REPLAY ==================== -->
-<section class="section section-gray">
+<section id="replay" class="section section-gray">
   <div class="container is-max-desktop">
     <h2 class="title is-3 section-title">Offline RL Replay Collapses</h2>
 
@@ -742,7 +790,7 @@
 </section>
 
 <!-- ==================== MAXIMUM LIKELIHOOD ==================== -->
-<section class="section section-white">
+<section id="max-likelihood" class="section section-white">
   <div class="container is-max-desktop">
     <h2 class="title is-3 section-title">Maximum Likelihood Tracks the Online Learning Curve</h2>
 
@@ -802,7 +850,7 @@
 </section>
 
 <!-- ==================== ORDER ==================== -->
-<section class="section section-gray">
+<section id="order" class="section section-gray">
   <div class="container is-max-desktop">
     <h2 class="title is-3 section-title">The Order of the Rollouts Matters</h2>
 
@@ -834,7 +882,7 @@
 </section>
 
 <!-- ==================== FEW ROLLOUTS ==================== -->
-<section class="section section-white">
+<section id="few-rollouts" class="section section-white">
   <div class="container is-max-desktop">
     <h2 class="title is-3 section-title">The Final Model from a Few Rollouts</h2>
 
@@ -879,7 +927,7 @@
 </section>
 
 <!-- ==================== APPLICATIONS ==================== -->
-<section class="section section-gray">
+<section id="applications" class="section section-gray">
   <div class="container is-max-desktop">
     <h2 class="title is-3 section-title">Further Applications of Archived Rollouts</h2>
 
@@ -925,7 +973,7 @@
 </section>
 
 <!-- ==================== CONCLUSION ==================== -->
-<section class="section section-white">
+<section id="conclusion" class="section section-white">
   <div class="container is-max-desktop">
     <h2 class="title is-3 section-title">Conclusion</h2>
     <div class="conclusion-box content has-text-justified">
@@ -974,6 +1022,33 @@
     </div>
   </div>
 </footer>
+
+<script>
+(() => {
+  const nav = document.querySelector('.article-contents');
+  const links = [...nav.querySelectorAll('a')];
+  const sections = links.map(link => document.querySelector(link.hash)).filter(Boolean);
+  const hero = document.querySelector('.hero');
+  let scheduled = false;
+  function update() {
+    scheduled = false;
+    nav.classList.toggle('is-visible', hero.getBoundingClientRect().bottom < 80);
+    let current = sections[0];
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= window.innerHeight * 0.35) current = section;
+    }
+    for (const link of links) {
+      if (current && link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  }
+  window.addEventListener('scroll', () => {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 
 </body>
 </html>
