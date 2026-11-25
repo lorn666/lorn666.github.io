@@ -606,15 +606,6 @@
         <strong>Recovering online RL from its saved rollouts.</strong> Online RL samples a batch $D_t$ from its current policy $\pi_t$ at every step. We save every batch to a rollout archive. (a) A student starting from the base model takes one SFT update on each batch in order and recovers the whole training trajectory. (b) Repeated SFT on the rollouts of the last few steps recovers the final policy.
       </p>
     </div>
-
-    <div class="figure-container" style="margin-top: 0.5rem;">
-      <center>
-        <img loading="lazy" decoding="async" src="./static/images/intro_teaser.png" alt="SFT tracks online MaxRL while offline replay collapses" style="max-width: 85%;">
-      </center>
-      <p class="figure-caption">
-        <strong>Maximum likelihood recovers online RL. Offline RL replay collapses.</strong> (a) How SFT recovers online RL. The online run samples a batch $D_t$ at each step. The student $\hat\pi_t$ takes one SFT update on each $D_t$ in order, which keeps it close to the online checkpoint $\pi_t$. (b) MATH-500 pass@1 of Qwen3-1.7B-Base trained only on the archived rollouts of an online MaxRL run. SFT (blue) follows online MaxRL (orange, dashed). Replaying the RL updates collapses, even with importance sampling.
-      </p>
-    </div>
   </div>
 </section>
 
@@ -627,6 +618,15 @@
         Broadly speaking, reinforcement learning (RL) post-training converts compute into model capabilities by training on model-generated data. Typically, the rollouts are discarded after each update, and the knowledge acquired during RL resides in the model weights. In this work, we investigate how much of this knowledge is retained in the rollouts themselves.
         A natural first attempt is to replay the original RL algorithm on archived rather than freshly generated rollouts, but this leads to catastrophic collapse. We provide a simple explanation for this phenomenon, which in turn suggests a remedy: maximum likelihood on the archived rollouts. Surprisingly, starting from the same base model and replaying the rollouts in the order in which they were generated, without any distinction between correct and incorrect responses, is sufficient to recover the performance of online RL. In fact, a single maximum likelihood update per rollout batch closely tracks the entire learning curve of online RL.
         Furthermore, maximum likelihood on the rollouts of the last few RL steps often suffices to recover the final model's performance. This suggests that much of the compute invested in RL goes into discovering an improved sampling distribution rather than learning it from samples.
+      </p>
+    </div>
+
+    <div class="figure-container" style="margin-top: 1.5rem;">
+      <center>
+        <img loading="lazy" decoding="async" src="./static/images/intro_teaser.png" alt="SFT tracks online MaxRL while offline replay collapses" style="max-width: 85%;">
+      </center>
+      <p class="figure-caption">
+        <strong>Maximum likelihood recovers online RL. Offline RL replay collapses.</strong> (a) How SFT recovers online RL. The online run samples a batch $D_t$ at each step. The student $\hat\pi_t$ takes one SFT update on each $D_t$ in order, which keeps it close to the online checkpoint $\pi_t$. (b) MATH-500 pass@1 of Qwen3-1.7B-Base trained only on the archived rollouts of an online MaxRL run. SFT (blue) follows online MaxRL (orange, dashed). Replaying the RL updates collapses, even with importance sampling.
       </p>
     </div>
   </div>
