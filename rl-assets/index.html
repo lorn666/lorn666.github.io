@@ -623,10 +623,10 @@
 
     <div class="figure-container" style="margin-top: 1.5rem;">
       <center>
-        <img loading="lazy" decoding="async" src="./static/images/intro_teaser.png" alt="SFT tracks online MaxRL while offline replay collapses" style="max-width: 85%;">
+        <img loading="lazy" decoding="async" src="./static/images/replay_performance_and_drift.png" alt="Maximum likelihood replay tracks online MaxRL as offline RL replay drifts" style="max-width: 100%;">
       </center>
       <p class="figure-caption">
-        <strong>Maximum likelihood recovers online RL. Offline RL replay collapses.</strong> (a) How SFT recovers online RL. The online run samples a batch $D_t$ at each step. The student $\hat\pi_t$ takes one SFT update on each $D_t$ in order, which keeps it close to the online checkpoint $\pi_t$. (b) MATH-500 pass@1 of Qwen3-1.7B-Base trained only on the archived rollouts of an online MaxRL run. SFT (blue) follows online MaxRL (orange, dashed). Replaying the RL updates collapses, even with importance sampling.
+        <strong>Maximum likelihood replay tracks online MaxRL as offline RL replay drifts.</strong> Panels (a) and (b) show pass@1 on MATH-500 and GSM8K. Panel (c) shows the per-token $\mathrm{KL}(\pi_t\,\|\,\hat\pi_t)$ from the rollout-generating policy to each replayed policy on GSM8K, on a logarithmic scale. On MATH-500, we evaluate maximum likelihood replay and online MaxRL every 100 steps and offline RL replay every 10 steps. IS denotes truncated token-level importance sampling. Filled markers indicate score centering (SC).
       </p>
     </div>
   </div>
