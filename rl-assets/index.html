@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Reinforcement Learning Can Be Recovered From Its Own Rollouts. Maximum likelihood on the archived rollouts of an online RL run recovers its learning curve.">
+  <meta name="keywords" content="LLM, Reasoning, Reinforcement Learning, Rollouts, Maximum Likelihood, SFT, Offline RL">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reinforcement Learning Can Be Recovered From Its Own Rollouts</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/bulma-carousel.min.js"></script>
+  <script defer src="./static/js/bulma-slider.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+
+  <style>
+    :root {
+      --primary: #363636;
+      --primary-light: #4a4a4a;
+      --text-dark: #1f2937;
+      --text-muted: #6b7280;
+      --bg-white: #ffffff;
+      --bg-gray: #f9fafb;
+      --border-light: #e5e7eb;
+    }
+    
+    body { color: var(--text-dark); }
+    
+    .hero { background: #f3f4f6; border-bottom: 1px solid #e5e7eb; overflow: visible !important; }
+    .hero .hero-body { padding-top: 2rem; padding-bottom: 0.8rem; overflow: visible !important; }
+    .hero * { overflow: visible !important; }
+    .hero .container, .hero .columns, .hero .column { overflow: visible !important; max-height: none !important; }
+    .hero .title.is-1 { color: #ab1727; font-weight: 400; font-family: Georgia, 'Times New Roman', serif; }
+    .hero .publication-authors a { color: #374151 !important; }
+    .hero .publication-authors a:hover { color: #C41230 !important; text-decoration: underline; }
+    .hero .publication-authors span { color: #4b5563; }
+
+    /* Venue / award badges */
+    .publication-badges {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      margin: 0.7rem 0 1.4rem 0;
+    }
+    .venue-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45em;
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.35;
+    }
+    .venue-line i { font-size: 0.95em; }
+    .venue-oral { color: var(--text-dark); }
+    .venue-award { color: var(--text-dark); }
+    .venue-line.venue-oral i,
+    .venue-line.venue-oral svg { color: #ab1727 !important; }
+    .venue-line.venue-award i,
+    .venue-line.venue-award svg { color: #b8860b !important; }
+    @media screen and (max-width: 480px) {
+      .venue-line { font-size: 1.05rem; }
+    }
+
+    .publication-links .button {
+      margin: 0.25rem;
+      background: transparent;
+      border: 1px solid #d1d5db;
+      color: #374151;
+    }
+    .publication-links .button:hover {
+      background: #f3f4f6;
+      border-color: #9ca3af;
+      color: #1f2937;
+    }
+    .publication-links .button[href*="arxiv"] .icon i {
+      color: #B31B1B !important;
+    }
+
+    /* Section titles */
+    h2.section-title,
+    h3.section-title,
+    h4.subsection-title,
+    .title.section-title {
+      color: var(--primary) !important;
+      font-weight: 600;
+      font-family: 'Google Sans', sans-serif;
+      margin-bottom: 1.5rem;
+    }
+    
+    h4.subsection-title {
+      font-size: 1.25rem;
+      font-family: 'Google Sans', sans-serif;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Body text */
+    .content p, .content li {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    
+    .section-white { background: var(--bg-white); }
+    .section-gray { background: var(--bg-gray); }
+    
+    .insight-box {
+      background: #fafafa;
+      border: 1px solid var(--border-light);
+      border-left: 4px solid #9ca3af;
+      padding: 1.5rem 2rem;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+    .insight-box p {
+      font-family: 'Castoro', Georgia, serif;
+      font-size: 1.1rem;
+    }
+    
+    .math-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    @media (max-width: 768px) { .math-comparison { grid-template-columns: 1fr; } }
+    
+    .math-box {
+      background: #fff;
+      border-radius: 6px;
+      padding: 1.5rem;
+      border: 1px solid var(--border-light);
+    }
+    .math-box.rl { border-top: 3px solid #dc2626; }
+    .math-box.ml { border-top: 3px solid var(--primary); }
+    .math-box h4 { font-weight: 600; margin-bottom: 1rem; color: var(--text-dark); }
+    
+    .figure-container {
+      background: transparent;
+      border-radius: 0;
+      padding: 1rem 0;
+      border: none;
+      margin: 1.5rem 0;
+    }
+    .figure-container img { border-radius: 4px; }
+    .figure-caption { font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem; text-align: center; }
+    
+    /* Equal height for analysis figures */
+    .analysis-columns {
+      display: flex;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+    .analysis-columns .analysis-col {
+      flex: 1;
+      display: flex;
+    }
+    .analysis-columns .figure-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+    .analysis-columns .figure-container .img-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .analysis-columns .figure-container img {
+      max-width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+    }
+    @media (max-width: 768px) {
+      .analysis-columns { flex-direction: column; }
+    }
+    
+    .result-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border-light);
+    }
+    .result-card h4 { color: var(--text-dark); font-weight: 600; margin-bottom: 1rem; }
+    
+    .highlight-stat {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .algorithm-box {
+      background: #1f2937;
+      color: #e5e7eb;
+      border-radius: 6px;
+      padding: 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+    }
+    .algorithm-box .comment { color: #9ca3af; }
+    .algorithm-box .keyword { color: #f472b6; }
+    .algorithm-box .function { color: #60a5fa; }
+    
+    table.comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    table.comparison-table th {
+      background: var(--primary);
+      color: #fff !important;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      text-align: left;
+    }
+    table.comparison-table th * { color: #fff !important; }
+    table.comparison-table th .katex, table.comparison-table th .katex * { color: #fff !important; }
+    table.comparison-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-light); }
+    table.comparison-table tr:last-child td { border-bottom: none; }
+    table.comparison-table tr:hover td { background: var(--bg-gray); }
+    
+    pre code { display: block; padding: 1rem; background: #1f2937; color: #e5e7eb; border-radius: 6px; overflow-x: auto; }
+    .bibtex-box { 
+      background: #374151;
+      border: 1px solid #4b5563;
+      border-radius: 8px; 
+      padding: 1.5rem;
+    }
+    .bibtex-box pre {
+      margin: 0;
+      background: transparent;
+    }
+    .bibtex-box code {
+      font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #e5e7eb;
+      background: transparent;
+      padding: 0;
+    }
+    
+    footer.footer { background: #1f2937; color: #9ca3af; padding: 2rem; overflow: hidden; }
+    footer.footer .columns { margin: 0; }
+    footer.footer .container { overflow: hidden; }
+    footer a { color: #93c5fd; }
+    footer a:hover { color: #bfdbfe; }
+    
+    .emoji-icon { margin-right: 0.5rem; }
+    .section { padding: 3rem 1.5rem; }
+    
+    .formula-box {
+      background: transparent;
+      border: none;
+      padding: 1rem 0;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    
+    
+    .conclusion-box {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+    .conclusion-box p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .conclusion-box p:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* ==================== MOBILE RESPONSIVE STYLES ==================== */
+    
+    /* Tablets and smaller */
+    @media (max-width: 1024px) {
+      .hero .title.is-1 { font-size: 2.2rem; }
+    }
+    
+    /* Mobile devices */
+    @media (max-width: 768px) {
+      /* Hero Section */
+      .hero .hero-body { padding-top: 1.2rem; padding-bottom: 0.6rem; }
+      .hero .title.is-1 { 
+        font-size: 1.5rem; 
+        white-space: normal !important; 
+        line-height: 1.3;
+      }
+      
+      /* Authors - make them wrap nicely */
+      .publication-authors { font-size: 0.9rem !important; }
+      .publication-authors .author-block { 
+        display: inline; 
+        white-space: nowrap;
+      }
+      .is-size-6.publication-authors { font-size: 0.8rem !important; }
+      .is-size-6.publication-authors .author-block { margin-left: 0.3em !important; }
+      
+      /* Section padding */
+      .section { padding: 2rem 1rem; }
+      
+      /* Titles */
+      h2.title.is-3, .title.is-3.section-title { font-size: 1.4rem; }
+      h4.subsection-title { font-size: 1.1rem; }
+      
+      /* Math comparison boxes */
+      .math-comparison { gap: 1rem; }
+      .math-box { padding: 1rem; }
+      .math-box p { font-size: 0.95rem; }
+      
+      /* Formula boxes - handle overflow */
+      .formula-box { 
+        overflow-x: auto; 
+        padding: 0.5rem;
+      }
+      .formula-box p { font-size: 0.9rem; }
+      
+      /* Insight boxes */
+      .insight-box { padding: 1rem 1.25rem; }
+      .insight-box p { font-size: 1rem; }
+      
+      /* Result cards */
+      .result-card { padding: 1.25rem; }
+      .result-card h4 { font-size: 1.1rem; }
+      
+      /* Figure captions */
+      .figure-caption { font-size: 0.8rem; }
+      
+      /* Tables - make scrollable */
+      .comparison-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      table.comparison-table { 
+        min-width: 500px; 
+        font-size: 0.85rem;
+      }
+      table.comparison-table th, 
+      table.comparison-table td { 
+        padding: 0.5rem 0.75rem; 
+      }
+      
+      /* Conclusion box */
+      .conclusion-box { padding: 1.25rem; }
+      
+      /* BibTeX */
+      .bibtex-box { padding: 1rem; }
+      .bibtex-box code { font-size: 0.7rem; }
+      
+      /* Publication links buttons */
+      .publication-links .button { 
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+      }
+      
+      /* Footer */
+      footer.footer { padding: 1.5rem 1rem; }
+      footer.footer img { height: 60px !important; }
+      footer p { font-size: 0.85rem; }
+      
+      /* TL;DR text */
+      .hero .hero-body p[style*="Castoro"] { font-size: 0.95rem !important; }
+    }
+    
+    /* Small phones */
+    @media (max-width: 480px) {
+      .hero .title.is-1 { font-size: 1.25rem; }
+      .publication-authors { font-size: 0.8rem !important; }
+      
+      h2.title.is-3, .title.is-3.section-title { font-size: 1.25rem; }
+      
+      .content p, .content li { font-size: 0.9rem; }
+      
+      .math-box h4 { font-size: 0.95rem; }
+      .math-box p { font-size: 0.85rem; }
+      
+      .result-card { padding: 1rem; }
+      .result-card h4 { font-size: 1rem; }
+      
+      /* Extra small formulas */
+      .formula-box p { font-size: 0.85rem; }
+      
+      /* Theorem boxes */
+      .result-card[style*="border-left"] { padding: 1rem; }
+      .result-card[style*="border-left"] h4 { font-size: 1rem; }
+      .result-card[style*="border-left"] div[style*="text-align: center"] { font-size: 0.9rem !important; }
+    }
+    
+    /* Ensure images never overflow */
+    img { max-width: 100%; height: auto; }
+    
+    /* KaTeX formula overflow handling */
+    .katex-display { overflow-x: auto; overflow-y: hidden; }
+    
+    /* Global overflow prevention */
+    .container { overflow-x: hidden; }
+    .content { word-wrap: break-word; overflow-wrap: break-word; }
+    
+    /* Table wrapper for mobile scrolling */
+    .comparison-table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Algorithm box mobile */
+    @media (max-width: 768px) {
+      .algorithm-box { 
+        font-size: 0.75rem; 
+        padding: 1rem;
+      }
+    }
+    
+    /* Result card theorem boxes mobile adjustments */
+    @media (max-width: 768px) {
+      .result-card div[style*="text-align: center"] {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+    .video-wrapper { max-width: 960px; margin: 0 auto; }
+    .video-wrapper video { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--border-light); background: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Reinforcement Learning Can Be Recovered<br>From Its Own Rollouts</h1>
+
+          <!-- Authors Section -->
+          <div class="is-size-5 publication-authors" style="margin-top: 1.2rem;">
+            <span class="author-block"><a href="https://jiayi-sheng.com/">Jiayi Sheng</a><sup>*,1</sup>,</span>
+            <span class="author-block"><a href="https://jingwengu.github.io/">Jingwen Gu</a><sup>*,2</sup>,</span>
+            <span class="author-block"><a href="https://guanning03.github.io/">Guanning Zeng</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://zhaoyizhou1123.github.io/">Zhaoyi Zhou</a><sup>1</sup>,</span><br>
+            <span class="author-block"><a href="https://stefanoviel.com/">Stefano Viel</a><sup>3</sup>,</span>
+            <span class="author-block"><a href="https://qianqianwang68.github.io/">Qianqian Wang</a><sup>4</sup>,</span>
+            <span class="author-block"><a href="https://tajwarfahim.github.io/">Fahim Tajwar</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="https://azanette.com">Andrea Zanette</a><sup>1</sup></span>
+          </div>
+          <div class="is-size-6 publication-authors" style="margin-top: 0.4rem;">
+            <span class="author-block"><sup>1</sup>Carnegie Mellon University</span>
+            <span class="author-block" style="margin-left: 0.8em;"><sup>2</sup>University of Illinois Urbana-Champaign</span>
+            <span class="author-block" style="margin-left: 0.8em;"><sup>3</sup>Tufa Labs</span>
+            <span class="author-block" style="margin-left: 0.8em;"><sup>4</sup>Harvard University</span>
+            <span class="author-block" style="margin-left: 0.8em;"><sup>*</sup>Equal Contribution</span>
+          </div>
+
+          <div class="has-text-centered" style="margin-top: 0.8rem;">
+            <div class="publication-links">
+              <span class="link-block">
+                <!-- TODO: arXiv link -->
+                <a href="#" class="external-link button is-normal is-rounded" target="_blank">
+                  <span class="icon"><img src="./static/images/arxiv-logomark-small.svg" alt="arXiv" style="width: 1em; height: 1em; vertical-align: middle;"></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <!-- TODO: code link -->
+                <a href="#" class="external-link button is-normal is-rounded">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#video" class="external-link button is-normal is-rounded">
+                  <span class="icon"><i class="fas fa-play"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+          <div style="margin-top: 0.6rem; text-align: center;">
+            <p style="font-family: 'Castoro', Georgia, serif; font-size: 1.05rem; color: #374151;">
+              <strong>TL;DR</strong>&nbsp; One maximum likelihood update per archived rollout batch, in the order the batches were generated, recovers the whole learning curve of online RL without any rewards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== OVERVIEW ==================== -->
+<section class="section section-white" style="padding-top: 0.8rem; padding-bottom: 0.5rem;">
+  <div class="container is-max-desktop">
+
+    <div class="figure-container" style="margin: 0;">
+      <center>
+        <img src="./static/images/method_illustration.png" alt="Recovering online RL from its saved rollouts" style="max-width: 100%;">
+      </center>
+      <p class="figure-caption">
+        <strong>Recovering online RL from its saved rollouts.</strong> Online RL samples a batch $D_t$ from its current policy $\pi_t$ at every step. We save every batch to a rollout archive. (a) A student starting from the base model takes one SFT update on each batch in order and recovers the whole training trajectory. (b) Repeated SFT on the rollouts of the last few steps recovers the final policy.
+      </p>
+    </div>
+
+    <div class="figure-container" style="margin-top: 0.5rem;">
+      <center>
+        <img loading="lazy" decoding="async" src="./static/images/intro_teaser.png" alt="SFT tracks online MaxRL while offline replay collapses" style="max-width: 85%;">
+      </center>
+      <p class="figure-caption">
+        <strong>Maximum likelihood recovers online RL. Offline RL replay collapses.</strong> MATH-500 pass@1 of Qwen3-1.7B-Base trained only on the archived rollouts of an online MaxRL run. SFT (blue) follows online MaxRL (orange, dashed). Replaying the RL updates collapses, even with importance sampling.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABSTRACT ==================== -->
+<section class="section section-white" style="padding-top: 1.5rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        Broadly speaking, reinforcement learning (RL) post-training converts compute into model capabilities by training on model-generated data. Typically, the rollouts are discarded after each update, and the knowledge acquired during RL resides in the model weights. In this work, we investigate how much of this knowledge is retained in the rollouts themselves.
+        A natural first attempt is to replay the original RL algorithm on archived rather than freshly generated rollouts, but this leads to catastrophic collapse. We provide a simple explanation for this phenomenon, which in turn suggests a remedy: maximum likelihood on the archived rollouts. Surprisingly, starting from the same base model and replaying the rollouts in the order in which they were generated, without any distinction between correct and incorrect responses, is sufficient to recover the performance of online RL. In fact, a single maximum likelihood update per rollout batch closely tracks the entire learning curve of online RL.
+        Furthermore, maximum likelihood on the rollouts of the last few RL steps often suffices to recover the final model's performance. This suggests that much of the compute invested in RL goes into discovering an improved sampling distribution rather than learning it from samples.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VIDEO ==================== -->
+<section class="section section-gray" id="video">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Video Overview</h2>
+    <div class="video-wrapper">
+      <video controls muted playsinline preload="metadata" poster="./static/images/video_poster.jpg">
+        <source src="./static/videos/recovery.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SETUP ==================== -->
+<section class="section section-white">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+
+      <h2 class="title is-3 section-title">Saving the Rollouts of Online RL</h2>
+
+      <p>
+        At every step $t$, online RL samples a batch of responses $D_t$ from its current policy $\pi_t$, scores them with a verifier, and uses them for a single update. For a prompt $x$ with success probability $p_t(x)$, the update of REINFORCE, RLOO, GRPO and MaxRL takes the common form
+      </p>
+
+      <div class="formula-box">
+        <p style="font-size: 1rem; margin: 0;">
+          $g_t(x)=w_t(x)\,\mathbb{E}_{y\sim\pi_t(\cdot\mid x)}\big[(r(x,y)-p_t(x))\,\nabla\log\pi_t(y\mid x)\big]$
+        </p>
+      </div>
+
+      <p>
+        where the prompt weight $w_t(x)$ distinguishes the algorithms. Once the update is applied, $D_t$ is usually thrown away. We instead keep every batch in the order it was generated, which gives the rollout archive $\mathcal{D}=(D_0,D_1,\ldots,D_{T-1})$.
+        We then ask how much of the online run can be recovered from this archive alone. We distinguish two goals.
+      </p>
+
+      <div class="math-comparison">
+        <div class="math-box" style="border-top: 3px solid #2a78d6;">
+          <h4 style="color: #2a78d6; text-align: center;">Trajectory recovery</h4>
+          <p style="text-align: center; margin: 0.5rem 0;">
+            Reproduce the performance of the model at every step of training.
+          </p>
+        </div>
+        <div class="math-box" style="border-top: 3px solid #eb6834;">
+          <h4 style="color: #eb6834; text-align: center;">Endpoint recovery</h4>
+          <p style="text-align: center; margin: 0.5rem 0;">
+            Reproduce only the performance of the final model.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== OFFLINE REPLAY ==================== -->
+<section class="section section-gray">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Offline RL Replay Collapses</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        A natural first attempt is to rerun the original RL updates on the archived rollouts. Starting from the same base model $\hat\pi_0=\pi_0$, we process the batches in their original order with the same update rule, rewards and hyperparameters.
+        The responses still come from $\pi_t$, but their scores are now evaluated at the replayed policy $\hat\pi_t$.
+      </p>
+
+      <div class="formula-box">
+        <p style="font-size: 1rem; margin: 0;">
+          $g_t^{\mathrm{replay}}(x)=w_t(x)\,\mathbb{E}_{y\sim\pi_t(\cdot\mid x)}\big[(r(x,y)-p_t(x))\,\nabla\log\hat\pi_t(y\mid x)\big]$
+        </p>
+      </div>
+
+      <p>
+        Let $\pi_t^+$ be the distribution of the successful responses of $\pi_t$. Holding the rollout policy fixed, this update is gradient ascent on two competing terms.
+      </p>
+
+      <div class="math-comparison">
+        <div class="math-box" style="border-top: 3px solid #1a9e77;">
+          <h4 style="color: #1a9e77; text-align: center;">Pull toward successes</h4>
+          <p style="text-align: center; font-size: 1.05rem; margin: 0.5rem 0;">
+            $-\mathrm{KL}(\pi_t^+\,\|\,\hat\pi_t)$
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; text-align: center;">
+            Matches the replayed policy to the correct responses.
+          </p>
+        </div>
+        <div class="math-box" style="border-top: 3px solid #c44e52;">
+          <h4 style="color: #c44e52; text-align: center;">Push away from the rollout policy</h4>
+          <p style="text-align: center; font-size: 1.05rem; margin: 0.5rem 0;">
+            $+\mathrm{KL}(\pi_t\,\|\,\hat\pi_t)$
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; text-align: center;">
+            Comes from the baseline. Its gradient vanishes only on-policy.
+          </p>
+        </div>
+      </div>
+
+      <div class="insight-box">
+        <p style="margin: 0;">
+          Online, the baseline term is harmless. In replay, any small discrepancy between $\hat\pi_t$ and $\pi_t$ lets this term push the two policies further apart, and the drift compounds over successive updates.
+        </p>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <h4>Replay drifts away and collapses</h4>
+      <p>
+        On GSM8K with SmolLM2-360M-Instruct, uncorrected MaxRL replay collapses while the divergence from the rollout policy grows by several orders of magnitude. Importance sampling and score centering delay the collapse but do not prevent the replayed policy from falling behind online RL. SFT on the same rollouts keeps the divergence small throughout training.
+      </p>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/offline_smollm.png" alt="Offline RL replay drifts" style="max-width: 90%;"></center>
+        <p class="figure-caption">
+          <strong>Offline RL replay drifts away from the policy that generated the rollouts.</strong> (a) GSM8K pass@1. (b) $\mathrm{KL}(\pi_t\,\|\,\hat\pi_t)$ between the policy $\pi_t$ that generated each batch and the trained model $\hat\pi_t$.
+        </p>
+      </div>
+      <div class="insight-box" style="margin-top: 1.5rem; margin-bottom: 0; border-left-color: #c44e52;">
+        <p style="margin: 0; font-weight: 600; color: #c44e52;">
+          Takeaway 1: Replaying the RL updates on saved rollouts drifts from the original run and collapses.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MAXIMUM LIKELIHOOD ==================== -->
+<section class="section section-white">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Maximum Likelihood Tracks the Online Learning Curve</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        The collapse suggests a remedy. Instead of pushing away from the rollout policy, we fit a student to it. Maximum likelihood on the responses sampled by $\pi_t$, correct and incorrect alike, minimizes exactly the divergence that replay increases.
+      </p>
+
+      <div class="formula-box">
+        <p style="font-size: 1rem; margin: 0;">
+          $\mathcal L_t(q) = -\mathbb{E}_{x\sim\rho,\,y\sim\pi_t(\cdot\mid x)}\big[\log q(y\mid x)\big] = \mathbb{E}_{x\sim\rho}\big[\mathrm{KL}\big(\pi_t(\cdot\mid x)\,\|\,q(\cdot\mid x)\big)\big] + \mathrm{Const.}$
+        </p>
+      </div>
+
+      <p>
+        An exact fit gives $\hat\pi_{t+1}=\pi_t$, so the student follows the online run one step behind. In practice, starting from the same base model, we take a <strong>single maximum likelihood update on each archived batch in chronological order</strong>. We refer to this procedure as supervised fine-tuning (SFT). It uses no rewards and no RL objective.
+      </p>
+
+      <div class="insight-box">
+        <p style="margin: 0;">
+          Each SFT update pulls the student $\hat\pi_t$ back toward the policy $\pi_t$ that generated the batch, so small errors are corrected instead of amplified.
+        </p>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <h4>The whole learning curve is recovered</h4>
+      <p>
+        Over 1,000 steps of MaxRL on Qwen3-1.7B-Base, the student closely tracks online pass@1 and pass@16 on MATH-500, AIME25, GPQA-Diamond and Knights and Knaves. On Knights and Knaves, it follows online MaxRL from near-zero accuracy through the steep rise in performance. The mean absolute gap in pass@$k$ ranges from 0.2 to 1.1 percentage points.
+      </p>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/sft_vs_online_maxrl_curves.png" alt="SFT follows the online learning curve" style="max-width: 100%;"></center>
+        <p class="figure-caption">
+          <strong>Chronological SFT on archived rollouts follows the learning curve of online MaxRL.</strong> Pass@1 and pass@16 of Qwen3-1.7B-Base for SFT on the rollouts in their original order (blue, solid) and for online MaxRL (orange, dashed).
+        </p>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <h4>The final checkpoint is recovered too</h4>
+      <p>
+        At the end of training, the student matches online MaxRL across all evaluated values of pass@$k$, for Qwen3-1.7B-Base and Qwen3-4B-Base. The same procedure also recovers online GRPO and RLOO.
+      </p>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/sft_vs_online_maxrl_passk.png" alt="Final pass@k" style="max-width: 100%;"></center>
+        <p class="figure-caption">
+          <strong>Final-checkpoint pass@$k$.</strong> SFT on the MaxRL rollouts in their original order (solid) and online MaxRL (dashed), for Qwen3-1.7B-Base (blue/orange) and Qwen3-4B-Base (green/red).
+        </p>
+      </div>
+      <div class="insight-box" style="margin-top: 1.5rem; margin-bottom: 0; border-left-color: #2a78d6;">
+        <p style="margin: 0; font-weight: 600; color: #2a78d6;">
+          Takeaway 2: One maximum likelihood update per batch, in order, recovers online RL from its own rollouts.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ORDER ==================== -->
+<section class="section section-gray">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">The Order of the Rollouts Matters</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        If the student sees batch $D_{\sigma(s)}$ at replay step $s$, an exact fit gives $\hat\pi_{s+1}=\pi_{\sigma(s)}$. The student ends wherever its last batch came from. Chronological replay ends at $\pi_{T-1}$, reverse replay ends at the base model $\pi_0$, and shuffled replay ends at a random step.
+      </p>
+    </div>
+
+    <div class="result-card">
+      <h4>Same rollouts, different endings</h4>
+      <p>
+        On MATH-500, reverse replay first jumps from about 57% to 70% pass@1, close to the final online model, and then falls back to about 57% as it reaches the earliest batches. Chronological replay tracks online MaxRL, and shuffled replay levels off below it. Chronological replay has the smallest endpoint error on every benchmark.
+      </p>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/replay_order.png" alt="Replay order" style="max-width: 100%;"></center>
+        <center><img loading="lazy" decoding="async" src="./static/images/replay_order_error.png" alt="Replay order endpoint error" style="max-width: 100%; margin-top: 1rem;"></center>
+        <p class="figure-caption">
+          <strong>Replay-order interventions.</strong> Top, pass@1 of SFT on the same archive in chronological, shuffled and reverse order. Bottom, the endpoint error of each order at step 1000.
+        </p>
+      </div>
+      <div class="insight-box" style="margin-top: 1.5rem; margin-bottom: 0; border-left-color: #7e3fbf;">
+        <p style="margin: 0; font-weight: 600; color: #7e3fbf;">
+          Takeaway 3: The student's performance is set by the rollouts it is currently learning from.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FEW ROLLOUTS ==================== -->
+<section class="section section-white">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">The Final Model from a Few Rollouts</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        If only the final model matters, the history may be unnecessary. Maximum likelihood on the rollouts of the last $m$ steps has the mixture of the last $m$ rollout policies as its unrestricted optimum.
+      </p>
+      <div class="formula-box">
+        <p style="font-size: 1rem; margin: 0;">
+          $\displaystyle q^\star(\cdot\mid x) = \frac{1}{m}\sum_{t=T-m}^{T-1}\pi_t(\cdot\mid x)$
+        </p>
+      </div>
+      <p>
+        Late in training the policy changes little, so this mixture is close to the final RL policy.
+      </p>
+    </div>
+
+    <div class="result-card">
+      <h4>One RL step is often enough</h4>
+      <p>
+        For Qwen3-1.7B-Base, repeated SFT from the base model on the rollouts of the <strong>last RL step alone</strong> recovers the performance gained over a thousand RL steps, on math and on Knights and Knaves. This is only 0.1% of the distinct rollouts generated during training. For SmolLM2-360M-Instruct on GSM8K, more batches are needed, and the last 50 recover most of the performance.
+      </p>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/last_step_sft.png" alt="Last-step recovery" style="max-width: 100%;"></center>
+        <p class="figure-caption">
+          <strong>Endpoint recovery from the last RL step's rollouts.</strong> Final pass@$k$ of online MaxRL (orange, dashed) and of SFT from the base model on the rollouts of the last RL step (blue). For SmolLM2-360M-Instruct, SFT also trains on the last 5 and 50 steps.
+        </p>
+      </div>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/sample_budget.png" alt="Sample budget" style="max-width: 100%;"></center>
+        <p class="figure-caption">
+          <strong>How much of the last step's rollouts is needed.</strong> SFT on a random subset of $n$ of the 4096 rollouts of the last RL step, compared with the final online MaxRL checkpoint.
+        </p>
+      </div>
+      <div class="insight-box" style="margin-top: 1.5rem; margin-bottom: 0; border-left-color: #1a9e77;">
+        <p style="margin: 0; font-weight: 600; color: #1a9e77;">
+          Takeaway 4: Much of the compute in RL goes into discovering a better sampling distribution, not into learning it from samples.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== APPLICATIONS ==================== -->
+<section class="section section-gray">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Further Applications of Archived Rollouts</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        Since maximum likelihood works on data rather than on weights, the archive can be reused beyond recovering the original model.
+      </p>
+    </div>
+
+    <div class="result-card">
+      <h4>Combining RL specialists in data space</h4>
+      <p>
+        We train two Qwen3-1.7B-Base specialists with MaxRL, one on math and one on Knights and Knaves. A single student replays both archives in chronological order, taking one update on each specialist's batch per step. It tracks the learning curves of both specialists on their own tasks. Using only their last-step rollouts, data-space composition retains most of the performance of both specialists and generally gives a better trade-off than merging their weights.
+      </p>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/compose_curves.png" alt="Composed student follows both specialists" style="max-width: 100%;"></center>
+        <p class="figure-caption">
+          <strong>SFT on all rollouts of two RL specialists follows both training curves.</strong>
+        </p>
+      </div>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/composition.png" alt="Composition vs weight merging" style="max-width: 100%;"></center>
+        <center><img loading="lazy" decoding="async" src="./static/images/math_knk.png" alt="Composition vs weight merging" style="max-width: 100%;"></center>
+        <p class="figure-caption">
+          <strong>Composing two RL specialists.</strong> Pass@$k$ on MATH-500 and Minerva against Knights and Knaves. Data-space composition is compared with weight-space merges of the two final checkpoints. The upper-right corner is best.
+        </p>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <h4>Transferring capabilities to another model</h4>
+      <p>
+        We train Qwen3-0.6B-Base on the archived rollouts of an online MaxRL run of Qwen3-1.7B-Base. Replay of the whole archive and of the last step alone both closely track distillation from the final checkpoint on MATH-500 and Minerva. Replay needs neither the final model nor any new generations.
+      </p>
+      <div class="figure-container">
+        <center><img loading="lazy" decoding="async" src="./static/images/transfer_0p6b.png" alt="Transfer to Qwen3-0.6B" style="max-width: 100%;"></center>
+        <p class="figure-caption">
+          <strong>Transfer from Qwen3-1.7B-Base to Qwen3-0.6B-Base.</strong> Pass@$k$ of the smaller model trained on samples from the final policy (distillation), on all rollouts, or on the rollouts of the last step.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONCLUSION ==================== -->
+<section class="section section-white">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Conclusion</h2>
+    <div class="conclusion-box content has-text-justified">
+      <p>
+        Replaying the original RL updates on saved rollouts is unstable. Yet starting from the same base model and taking a single maximum likelihood update on each archived batch, in chronological order, closely tracks the online RL learning curve without access to rewards. Recovering the final model's performance often requires only a small fraction of the rollouts generated during training.
+      </p>
+      <p>
+        RL thus produces a dataset from which the original model's performance can be recovered. The same archives can combine independently trained specialists or train a smaller model. As models grow and RL runs get longer, what fraction of the training history will still be needed to recover their final performance?
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BIBTEX ==================== -->
+<section class="section section-gray" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 section-title">BibTeX</h2>
+    <div class="bibtex-box">
+      <pre><code>@article{sheng2026recovered,
+  title   = {Reinforcement Learning Can Be Recovered From Its Own Rollouts},
+  author  = {Sheng, Jiayi and Gu, Jingwen and Zeng, Guanning and Zhou, Zhaoyi
+             and Viel, Stefano and Wang, Qianqian and Tajwar, Fahim and Zanette, Andrea},
+  journal = {arXiv preprint},
+  year    = {2026},
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered" style="margin-bottom: 1.5rem;">
+      <a href="https://www.cmu.edu/" target="_blank">
+        <img loading="lazy" decoding="async" src="./static/images/cmu_logo.png" alt="Carnegie Mellon University" style="height: 100px; border-radius: 4px;">
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <p>
+        Corresponding Authors: <a href="mailto:jsheng2@andrew.cmu.edu">Jiayi Sheng</a>, <a href="mailto:jgu17@illinois.edu">Jingwen Gu</a>, <a href="mailto:azanette@andrew.cmu.edu">Andrea Zanette</a><br>
+        Template adapted from <a href="https://zanette-labs.github.io/MaxRL/">MaxRL</a> and <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
