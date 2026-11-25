@@ -600,10 +600,10 @@
 
     <div class="figure-container" style="margin: 0;">
       <center>
-        <img src="./static/images/method_illustration.png" alt="Recovering online RL from its saved rollouts" style="max-width: 100%;">
+        <img src="./static/images/replay_protocols.png" alt="Two replay protocols for a T-step rollout archive" style="max-width: 70%;">
       </center>
       <p class="figure-caption">
-        <strong>Recovering online RL from its saved rollouts.</strong> Online RL samples a batch $D_t$ from its current policy $\pi_t$ at every step. We save every batch to a rollout archive. (a) A student starting from the base model takes one SFT update on each batch in order and recovers the whole training trajectory. (b) Repeated SFT on the rollouts of the last few steps recovers the final policy.
+        <strong>Two replay protocols for a $T$-step rollout archive.</strong> Both students start from $\pi_0$ and fit the saved responses by maximum likelihood without rewards. In this example, endpoint replay cycles over the final two batches to recover the performance of $\pi_T$. Trajectory replay takes one update per batch in chronological order.
       </p>
     </div>
   </div>
