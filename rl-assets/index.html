@@ -291,6 +291,25 @@
     }
     
     
+    .question-box {
+      margin: 1.75rem 0;
+      padding: 1.4rem 1.5rem;
+      border-top: 2px solid #ab1727;
+      border-bottom: 2px solid #ab1727;
+      text-align: center;
+    }
+    .question-box p {
+      margin: 0;
+      font-family: 'Castoro', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: #ab1727;
+    }
+    @media (max-width: 768px) { .question-box p { font-size: 1.1rem; } .question-box br { display: none; } }
+    .weights-table { max-width: 520px; margin: 0 auto; }
+    .weights-table table.comparison-table { margin: 0.5rem 0 1.5rem 0; }
+
     .conclusion-box {
       background: #fff;
       border: 1px solid var(--border-light);
@@ -532,7 +551,7 @@
         <img loading="lazy" decoding="async" src="./static/images/intro_teaser.png" alt="SFT tracks online MaxRL while offline replay collapses" style="max-width: 85%;">
       </center>
       <p class="figure-caption">
-        <strong>Maximum likelihood recovers online RL. Offline RL replay collapses.</strong> MATH-500 pass@1 of Qwen3-1.7B-Base trained only on the archived rollouts of an online MaxRL run. SFT (blue) follows online MaxRL (orange, dashed). Replaying the RL updates collapses, even with importance sampling.
+        <strong>Maximum likelihood recovers online RL. Offline RL replay collapses.</strong> (a) How SFT recovers online RL. The online run samples a batch $D_t$ at each step. The student $\hat\pi_t$ takes one SFT update on each $D_t$ in order, which keeps it close to the online checkpoint $\pi_t$. (b) MATH-500 pass@1 of Qwen3-1.7B-Base trained only on the archived rollouts of an online MaxRL run. SFT (blue) follows online MaxRL (orange, dashed). Replaying the RL updates collapses, even with importance sampling.
       </p>
     </div>
   </div>
@@ -582,8 +601,32 @@
       </div>
 
       <p>
-        where the prompt weight $w_t(x)$ distinguishes the algorithms. Once the update is applied, $D_t$ is usually thrown away. We instead keep every batch in the order it was generated, which gives the rollout archive $\mathcal{D}=(D_0,D_1,\ldots,D_{T-1})$.
-        We then ask how much of the online run can be recovered from this archive alone. We distinguish two goals.
+        where the prompt weight $w_t(x)$ distinguishes the algorithms.
+      </p>
+
+      <div class="comparison-table-wrapper weights-table">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Algorithm</th><th>Prompt weight $w_t(x)$</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>REINFORCE, RLOO</td><td>$1$</td></tr>
+            <tr><td>GRPO</td><td>$1/\sqrt{p_t(x)(1-p_t(x))}$</td></tr>
+            <tr><td>MaxRL</td><td>$1/p_t(x)$</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Once the update is applied, $D_t$ is usually thrown away, and what remains is the model weights. We instead keep every batch in the order it was generated, which gives the rollout archive $\mathcal{D}=(D_0,D_1,\ldots,D_{T-1})$. As the model improves, so does the distribution from which these rollouts are sampled. This raises a natural question.
+      </p>
+
+      <div class="question-box">
+        <p>How much of what a model learns during reinforcement learning<br>can be recovered from the data it generates along the way?</p>
+      </div>
+
+      <p>
+        We distinguish two notions of recovery.
       </p>
 
       <div class="math-comparison">
@@ -622,7 +665,19 @@
       </div>
 
       <p>
-        Let $\pi_t^+$ be the distribution of the successful responses of $\pi_t$. Holding the rollout policy fixed, this update is gradient ascent on two competing terms.
+        When $\hat\pi_t=\pi_t$, this is the online update. For a prompt with $p_t(x)>0$, let
+        $\pi_t^+(y\mid x)=\pi_t(y\mid x)\,r(x,y)/p_t(x)$ denote the distribution of responses conditioned on success.
+        If we hold the rollout-generating policy $\pi_t$ fixed, $g_t^{\mathrm{replay}}(x)$ is the gradient for ascent on
+      </p>
+
+      <div class="formula-box">
+        <p style="font-size: 1.05rem; margin: 0;">
+          $$w_t(x)\,p_t(x)\Big[\underbrace{-\mathrm{KL}\big(\pi_t^+(\cdot\mid x)\,\|\,\hat\pi_t(\cdot\mid x)\big)}_{\text{pull toward successful responses}}\;\underbrace{+\,\mathrm{KL}\big(\pi_t(\cdot\mid x)\,\|\,\hat\pi_t(\cdot\mid x)\big)}_{\text{baseline push away from the rollout policy}}\Big]$$
+        </p>
+      </div>
+
+      <p>
+        The two terms inside the brackets pull in opposite directions.
       </p>
 
       <div class="math-comparison">
