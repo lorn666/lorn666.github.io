@@ -23,8 +23,8 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Jiayi Sheng"
   avatar           : "images/my_photos_v3.png"
-  bio              : "Master Student\n, interested in Large Language Model, Machine Learning."
-  location         : "Beijing, China"
+  bio              : "Master Student\n, interested in Large Language Model, Post-training."
+  location         : "Pittsburgh, PA"
   employer         :
   pubmed           : 
   googlescholar    : 

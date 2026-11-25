@@ -18,7 +18,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi! I am a Master’s student in the <a href = "https://www.ml.cmu.edu/">Machine Learning Department</a> at the School of Computer Science at <a href = "https://www.cmu.edu/">Carnegie Mellon University</a>. I earned my B.Sc. and B.Eng. degree from SCU, where I majored in Statistics and Mathematics and minored in Software Engineering. I was also an exchange student at UC Berkeley during Spring and Summer 2025. My research interest lies in generative model and large language model. I was also an intern working on AI for science at Alibaba Group US DAMO Academy supervised by <a href = "https://wotaoyin.mathopt.com/">Wotao Yin</a>. I am always excited to discussing cool ideas and potential collaborations!
+Hi! I am a Master’s student in the <a href = "https://www.ml.cmu.edu/">Machine Learning Department</a> at <a href = "https://www.cmu.edu/">Carnegie Mellon University</a>, advised by Prof. <a href = "https://azanette.com/">Andrea Zanette</a>. I earned my B.Sc. and B.Eng. degree from SCU, where I majored in Statistics and Mathematics and minored in Software Engineering. I was also an exchange student at UC Berkeley during Spring and Summer 2025. My research interest lies in post-training and reinforcement learning. I am always excited to discussing cool ideas and potential collaborations!
 
 
 # 🔥 News
